@@ -485,6 +485,73 @@
     }
     .contact-item-label { font-size: 0.72rem; color: #8899AA; letter-spacing: 0.05em; text-transform: uppercase; }
     .contact-item-value { font-size: 0.92rem; color: var(--navy); font-weight: 500; margin-top: 0.1rem; }
+    .whatsapp-item .whatsapp-icon { background: rgba(37,211,102,0.12); color: #25D366; }
+    .whatsapp-item:hover { border-color: rgba(37,211,102,0.5); box-shadow: 0 4px 16px rgba(37,211,102,0.15); }
+
+    /* Floating WhatsApp quick-response button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 24px; right: 24px;
+      width: 56px; height: 56px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 18px rgba(37,211,102,0.45);
+      z-index: 150;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      animation: wa-pulse 2.4s ease-in-out infinite;
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.08);
+      box-shadow: 0 6px 24px rgba(37,211,102,0.6);
+    }
+    .whatsapp-float svg { width: 28px; height: 28px; fill: #ffffff; }
+    @keyframes wa-pulse {
+      0%, 100% { box-shadow: 0 4px 18px rgba(37,211,102,0.45); }
+      50% { box-shadow: 0 4px 26px rgba(37,211,102,0.75); }
+    }
+    .whatsapp-float::after {
+      content: 'Want an instant response? Message me here!';
+      position: absolute;
+      right: calc(100% + 12px);
+      top: 50%;
+      transform: translateY(-50%) translateX(8px);
+      background: var(--navy);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 500;
+      white-space: nowrap;
+      padding: 0.55rem 0.9rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+    .whatsapp-float::before {
+      content: '';
+      position: absolute;
+      right: calc(100% + 4px);
+      top: 50%;
+      transform: translateY(-50%) translateX(8px);
+      border: 6px solid transparent;
+      border-left-color: var(--navy);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+    .whatsapp-float:hover::after,
+    .whatsapp-float:hover::before {
+      opacity: 1;
+      transform: translateY(-50%) translateX(0);
+    }
+    @media (max-width: 768px) {
+      .whatsapp-float { bottom: 18px; right: 18px; width: 50px; height: 50px; }
+      .whatsapp-float svg { width: 24px; height: 24px; }
+      .whatsapp-float::after { font-size: 0.75rem; padding: 0.45rem 0.75rem; }
+    }
     .contact-form { display: flex; flex-direction: column; gap: 1rem; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
     .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
@@ -521,9 +588,184 @@
     /* ── DIVIDER ─────────────────────────────────────────── */
     .divider { height: 1px; background: #e2e8f0; }
 
-    /* ── SCROLL FADE-IN ──────────────────────────────────── */
-    .fade-in { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    /* ── SCROLL ANIMATIONS ───────────────────────────────── */
+    /* Default: fade + slide up (used for general section headers) */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
     .fade-in.visible { opacity: 1; transform: none; }
+
+    /* About avatar: slides in from LEFT to its place */
+    .anim-left {
+      opacity: 0;
+      transform: translateX(-90px);
+      transition: opacity 0.8s cubic-bezier(.22,.9,.32,1), transform 0.8s cubic-bezier(.22,.9,.32,1);
+    }
+    .anim-left.visible { opacity: 1; transform: none; }
+
+    /* About info/bio text: slides in from RIGHT */
+    .anim-right {
+      opacity: 0;
+      transform: translateX(90px);
+      transition: opacity 0.8s cubic-bezier(.22,.9,.32,1), transform 0.8s cubic-bezier(.22,.9,.32,1);
+    }
+    .anim-right.visible { opacity: 1; transform: none; }
+
+    /* Skills cards: zoom / scale in */
+    .anim-zoom {
+      opacity: 0;
+      transform: scale(0.82);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .anim-zoom.visible { opacity: 1; transform: none; }
+
+    /* Projects cards: pop up from below with slight rotation */
+    .anim-pop {
+      opacity: 0;
+      transform: translateY(50px) rotate(-2deg);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .anim-pop.visible { opacity: 1; transform: none; }
+
+    /* Education cards: slide in from LEFT, alternating could be added */
+    .anim-slide-left {
+      opacity: 0;
+      transform: translateX(-70px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .anim-slide-left.visible { opacity: 1; transform: none; }
+
+    .anim-slide-right {
+      opacity: 0;
+      transform: translateX(70px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .anim-slide-right.visible { opacity: 1; transform: none; }
+
+    /* Contact: flip / fade with slight scale + rotateX */
+    .anim-flip {
+      opacity: 0;
+      transform: perspective(800px) rotateX(12deg) translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .anim-flip.visible { opacity: 1; transform: none; }
+
+    /* stagger delays for grouped children */
+    .delay-1 { transition-delay: 0.08s; }
+    .delay-2 { transition-delay: 0.16s; }
+    .delay-3 { transition-delay: 0.24s; }
+    .delay-4 { transition-delay: 0.32s; }
+    .delay-5 { transition-delay: 0.4s; }
+
+    /* ── CV BUTTON (nav) ─────────────────────────────────── */
+    .cv-btn {
+      background: transparent;
+      border: 1px solid rgba(0,212,255,0.45);
+      color: var(--cyan);
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600; font-size: 0.82rem;
+      padding: 0.45rem 1.1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      letter-spacing: 0.02em;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      margin-left: 1.5rem;
+      white-space: nowrap;
+    }
+    .cv-btn:hover { background: rgba(0,212,255,0.1); transform: translateY(-1px); }
+
+    /* ── CV MODAL ────────────────────────────────────────── */
+    .cv-overlay {
+      display: none;
+      position: fixed; inset: 0; z-index: 500;
+      background: rgba(13,27,42,0.72);
+      backdrop-filter: blur(4px);
+      align-items: flex-start; justify-content: center;
+      padding: 40px 16px;
+      overflow-y: auto;
+    }
+    .cv-overlay.open { display: flex; }
+    .cv-modal {
+      background: #ffffff;
+      color: #222;
+      width: 100%; max-width: 760px;
+      border-radius: 10px;
+      position: relative;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+      animation: cv-pop 0.3s ease;
+    }
+    @keyframes cv-pop {
+      from { opacity: 0; transform: translateY(20px) scale(0.98); }
+      to   { opacity: 1; transform: none; }
+    }
+    .cv-toolbar {
+      display: flex; justify-content: flex-end; gap: 0.6rem;
+      padding: 0.9rem 1.2rem;
+      border-bottom: 1px solid #e5e9ee;
+      position: sticky; top: 0;
+      background: #ffffff;
+      border-radius: 10px 10px 0 0;
+    }
+    .cv-toolbar button {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.82rem; font-weight: 600;
+      padding: 0.45rem 1rem;
+      border-radius: 6px; cursor: pointer;
+      border: 1px solid #cfd8e0;
+      background: #f4f7fa; color: #263241;
+      transition: background 0.2s;
+    }
+    .cv-toolbar button:hover { background: #e8eef3; }
+    .cv-toolbar .cv-print-btn { background: var(--navy); color: #fff; border-color: var(--navy); }
+    .cv-toolbar .cv-print-btn:hover { background: #16324d; }
+
+    .cv-paper { padding: 2.4rem 2.6rem 3rem; font-family: 'Inter', sans-serif; color: #222; }
+    .cv-header { text-align: center; margin-bottom: 1.6rem; border-bottom: 2px solid #222; padding-bottom: 1rem; }
+    .cv-name { font-family: 'Space Grotesk', sans-serif; font-size: 1.9rem; font-weight: 700; letter-spacing: -0.01em; }
+    .cv-role { font-size: 0.95rem; color: #555; margin-top: 0.2rem; }
+    .cv-contact-line { font-size: 0.82rem; color: #444; margin-top: 0.6rem; }
+    .cv-contact-line span { margin: 0 0.5rem; }
+
+    .cv-section { margin-top: 1.5rem; }
+    .cv-section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.95rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.05em;
+      color: #16324d;
+      border-bottom: 1px solid #d8dee4;
+      padding-bottom: 0.3rem; margin-bottom: 0.7rem;
+    }
+    .cv-entry { margin-bottom: 0.9rem; }
+    .cv-entry:last-child { margin-bottom: 0; }
+    .cv-entry-top { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.3rem; }
+    .cv-entry-title { font-weight: 600; font-size: 0.92rem; color: #1a1a1a; }
+    .cv-entry-sub { font-size: 0.85rem; color: #556; }
+    .cv-entry-date { font-size: 0.8rem; color: #777; font-family: 'JetBrains Mono', monospace; }
+    .cv-entry-desc { font-size: 0.85rem; color: #444; margin-top: 0.25rem; line-height: 1.6; }
+    .cv-tags-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.5rem; }
+    .cv-tag {
+      font-size: 0.75rem; font-family: 'JetBrains Mono', monospace;
+      background: #f0f3f6; border: 1px solid #d8dee4;
+      padding: 0.2rem 0.6rem; border-radius: 4px; color: #333;
+    }
+    .cv-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem 1.5rem; }
+
+    @media (max-width: 600px) {
+      .cv-paper { padding: 1.6rem 1.2rem 2rem; }
+      .cv-two-col { grid-template-columns: 1fr; }
+    }
+
+    /* Print only the CV content */
+    @media print {
+      body * { visibility: hidden; }
+      .cv-modal, .cv-modal * { visibility: visible; }
+      .cv-modal { position: absolute; left: 0; top: 0; width: 100%; box-shadow: none; }
+      .cv-toolbar { display: none; }
+      .cv-overlay { position: static; background: none; padding: 0; }
+    }
 
     /* ── RESPONSIVE ──────────────────────────────────────── */
     @media (max-width: 768px) {
@@ -554,6 +796,10 @@
     <li><a href="#projects">Projects</a></li>
     <li><a href="#education">Education</a></li>
     <li><a href="#contact">Contact</a></li>
+    <li><button class="cv-btn" onclick="openCV()">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+      CV
+    </button></li>
   </ul>
   <button class="hamburger" id="hamburger" aria-label="Menu">
     <span></span><span></span><span></span>
@@ -567,6 +813,7 @@
   <a href="#projects" onclick="closeMobileNav()">Projects</a>
   <a href="#education" onclick="closeMobileNav()">Education</a>
   <a href="#contact" onclick="closeMobileNav()">Contact</a>
+  <a href="#" onclick="closeMobileNav(); openCV(); return false;">View CV</a>
 </div>
 
 <!-- HERO -->
@@ -598,12 +845,12 @@
     <!-- <p class="section-sub">A quick peek into who I am and what drives me.</p> -->
   </div>
   <!-- top row: pic + info -->
-  <div class="about-grid fade-in">
-    <div class="about-avatar-wrap">
+  <div class="about-grid">
+    <div class="about-avatar-wrap anim-left">
       <img src="turzoo.png" alt="Md. Redone Prodhan Turzo" class="profile-img">
       <div class="avatar-badge">BSc. SWE</div>
     </div>
-    <div class="about-info-col">
+    <div class="about-info-col anim-right">
       <div class="info-list">
         <div class="info-item">
           <span class="info-label">University</span>
@@ -641,8 +888,8 @@
     <h2 class="section-title">Skills & Technologies</h2>
     <p class="section-sub">Tools and languages I've built with and keep sharpening.</p>
   </div>
-  <div class="skills-categories fade-in">
-    <div class="skill-card">
+  <div class="skills-categories">
+    <div class="skill-card anim-zoom delay-1">
       <div class="skill-card-title">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
         Programming Languages
@@ -652,7 +899,7 @@
         <span class="skill-tag">HTML/CSS</span>
       </div>
     </div>
-    <div class="skill-card">
+    <div class="skill-card anim-zoom delay-2">
       <div class="skill-card-title">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
         Tools & Platforms
@@ -666,7 +913,7 @@
       </div>
     </div>
 
-    <div class="skill-card">
+    <div class="skill-card anim-zoom delay-3">
       <div class="skill-card-title">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
         Interpersonal Skills
@@ -691,8 +938,8 @@
     <h2 class="section-title">Projects</h2>
     <p class="section-sub">A selection of things I've designed and engineered.</p>
   </div>
-  <div class="projects-grid fade-in">
-    <div class="project-card">
+  <div class="projects-grid">
+    <div class="project-card anim-pop delay-1">
       <div class="project-num">// 01</div>
       <div class="project-name">Project on C language</div>
       <div class="project-desc">Developed a project using the C language to apply 
@@ -715,7 +962,7 @@
         </a>
       </div>
     </div>
-    <div class="project-card">
+    <div class="project-card anim-pop delay-2">
       <div class="project-num">// 02</div>
       <div class="project-name">Project on Data structure</div>
       <div class="project-desc">Developed a project applying fundamental data structure concepts such as arrays, linked lists, stacks, and queues to efficiently organize and process data.</div>
@@ -736,7 +983,7 @@
         </a>
       </div>
     </div>
-    <div class="project-card">
+    <div class="project-card anim-pop delay-3">
       <div class="project-num">// 03</div>
       <div class="project-name">Project on Discrete Mathematics</div>
       <div class="project-desc">Completed a project focused on logical reasoning, set theory, graph theory, and mathematical problem-solving techniques used in computer science.</div>
@@ -757,7 +1004,7 @@
         </a>
       </div>
     </div>
-    <div class="project-card">
+    <div class="project-card anim-pop delay-4">
       <div class="project-num">// 04</div>
       <div class="project-name">Project on Calculas</div>
       <div class="project-desc">Completed a project exploring differential and integral calculus concepts, including rates of change, optimization, and area calculations for practical applications.</div>
@@ -777,7 +1024,7 @@
         </a>
       </div>
     </div>
-    <div class="project-card">
+    <div class="project-card anim-pop delay-5">
       <div class="project-num">// 05</div>
       <div class="project-name">Project on Physics</div>
       <div class="project-desc">Conducted a physics project involving the analysis of scientific principles, experimental methods, and real-world applications of physical laws.</div>
@@ -811,8 +1058,8 @@
     <h2 class="section-title">Education</h2>
     <p class="section-sub">The institution that has shaped my technical foundation.</p>
   </div>
-  <div class="edu-grid fade-in">
-    <div class="edu-card">
+  <div class="edu-grid">
+    <div class="edu-card anim-slide-left">
       <div class="edu-degree">Bachelor of Science in Software Engineering</div>
       <div class="edu-school">Green University of Bangladesh</div>
       <div class="edu-period">2026 – Present (Running)</div>
@@ -823,7 +1070,7 @@
       </div>
       <span class="edu-badge">Currently Enrolled</span>
     </div>
-    <div class="edu-card">
+    <div class="edu-card anim-slide-right">
       <div class="edu-degree">Higher secondary certificate examination</div>
       <div class="edu-school">Nirjhor cantonment public school and college</div>
       <div class="edu-period">2023 – 2025 </div>
@@ -847,8 +1094,8 @@
     <h2 class="section-title">Get in Touch</h2>
     <p class="section-sub">I'm open to internships, collaborations, and interesting conversations about tech.</p>
   </div>
-  <div class="contact-wrap fade-in">
-    <div class="contact-info">
+  <div class="contact-wrap">
+    <div class="contact-info anim-flip">
       <p>Whether you're a recruiter, a fellow developer, or just curious about my work — don't hesitate to reach out. I'll get back to you as soon as I can.</p>
       <div class="contact-items">
         <a href="mailto:turzo@example.com" class="contact-item">
@@ -878,6 +1125,15 @@
             <div class="contact-item-value">linkedin.com/in/redoneturzo</div>
           </div>
         </a>
+        <a href="https://wa.me/8801898665386?text=Hi%20Turzo%2C%20I%20saw%20your%20portfolio%20and%20wanted%20to%20connect!" target="_blank" rel="noopener" class="contact-item whatsapp-item">
+          <div class="contact-icon whatsapp-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.472-.148-.67.15-.198.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.004 2.003c-5.514 0-9.997 4.483-9.997 9.997 0 1.762.464 3.484 1.345 4.997L2 22l5.146-1.35a9.96 9.96 0 0 0 4.858 1.237h.004c5.514 0 9.997-4.483 9.997-9.997 0-2.67-1.04-5.18-2.929-7.069a9.935 9.935 0 0 0-7.072-2.818zm0 18.166h-.003a8.16 8.16 0 0 1-4.158-1.14l-.298-.177-3.055.801.816-2.978-.194-.306a8.147 8.147 0 0 1-1.25-4.369c0-4.508 3.669-8.176 8.178-8.176 2.184 0 4.238.851 5.783 2.397a8.126 8.126 0 0 1 2.394 5.786c0 4.508-3.67 8.162-8.213 8.162z"/></svg>
+          </div>
+          <div>
+            <div class="contact-item-label">WhatsApp</div>
+            <div class="contact-item-value">Quick chat &rarr; tap to message</div>
+          </div>
+        </a>
         <div class="contact-item" style="cursor:default;">
           <div class="contact-icon">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -889,7 +1145,7 @@
         </div>
       </div>
     </div>
-    <div>
+    <div class="anim-flip delay-2">
       <div class="contact-form">
         <div class="form-row">
           <div class="form-group">
@@ -917,6 +1173,173 @@
     </div>
   </div>
 </section>
+
+<!-- CV MODAL -->
+<div class="cv-overlay" id="cvOverlay" onclick="if(event.target===this) closeCV()">
+  <div class="cv-modal">
+    <div class="cv-toolbar">
+      <button class="cv-print-btn" onclick="window.print()">
+        ⬇ Download / Print
+      </button>
+      <button onclick="closeCV()">✕ Close</button>
+    </div>
+
+    <div class="cv-paper">
+      <div class="cv-header">
+        <div class="cv-name">Md. Redone Prodhan Turzo</div>
+        <div class="cv-role">Software Engineering Undergraduate</div>
+        <div class="cv-contact-line">
+          <span>Chasara, Narayangonj</span>|
+          <span>01898665386</span>|
+          <span>redoneprodhan141@gmail.com</span>
+        </div>
+        <div class="cv-contact-line">
+          <span>linkedin.com/redoneturzo</span>|
+          <span>github.com/redoneturzo</span>|
+          <span>redoneturzo.github.io</span>
+        </div>
+      </div>
+
+      <div class="cv-section">
+        <div class="cv-section-title">Career Objective</div>
+        <div class="cv-entry-desc">
+          Motivated Software Engineering undergraduate at Green University of Bangladesh with a strong passion
+          for software development, problem-solving, and innovative technology solutions. Skilled in combining
+          analytical thinking with creative design to build efficient and user-friendly applications. Eager to
+          expand technical expertise, contribute to impactful projects, and grow as a software engineer in a
+          dynamic and challenging environment.
+        </div>
+      </div>
+
+      <div class="cv-section">
+        <div class="cv-section-title">Education</div>
+        <div class="cv-entry">
+          <div class="cv-entry-top">
+            <div class="cv-entry-title">Bachelor of Science in Software Engineering</div>
+            <div class="cv-entry-date">Passing year: ongoing</div>
+          </div>
+          <div class="cv-entry-sub">Green University of Bangladesh (GUB) · Result: 3.17 / 4.00</div>
+        </div>
+        <div class="cv-entry">
+          <div class="cv-entry-top">
+            <div class="cv-entry-title">Higher Secondary Certificate Examination (HSC)</div>
+            <div class="cv-entry-date">Passing year: 2025</div>
+          </div>
+          <div class="cv-entry-sub">Gobindagonj Government College · Result: 4.17 / 5.00</div>
+        </div>
+        <div class="cv-entry">
+          <div class="cv-entry-top">
+            <div class="cv-entry-title">Secondary School Certificate Examination (SSC)</div>
+            <div class="cv-entry-date">Passing year: 2023</div>
+          </div>
+          <div class="cv-entry-sub">Gobindagonj Government School · Result: 5.00 / 5.00</div>
+        </div>
+      </div>
+
+      <div class="cv-section">
+        <div class="cv-section-title">Technical Skills</div>
+        <div class="cv-two-col">
+          <div>
+            <div class="cv-entry-sub" style="margin-bottom:0.3rem;">Programming Languages</div>
+            <div class="cv-tags-row"><span class="cv-tag">C</span></div>
+          </div>
+          <div>
+            <div class="cv-entry-sub" style="margin-bottom:0.3rem;">Web Technologies</div>
+            <div class="cv-tags-row">
+              <span class="cv-tag">HTML5</span>
+              <span class="cv-tag">CSS3</span>
+            </div>
+          </div>
+          <div>
+            <div class="cv-entry-sub" style="margin-bottom:0.3rem;">Development Tools</div>
+            <div class="cv-tags-row">
+              <span class="cv-tag">Codeblocks</span>
+              <span class="cv-tag">VS Code</span>
+              <span class="cv-tag">Git</span>
+              <span class="cv-tag">GitHub</span>
+            </div>
+          </div>
+          <div>
+            <div class="cv-entry-sub" style="margin-bottom:0.3rem;">Others</div>
+            <div class="cv-tags-row"><span class="cv-tag">Data Structures</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cv-section">
+        <div class="cv-section-title">Projects</div>
+        <div class="cv-entry">
+          <div class="cv-entry-title">Personal Portfolio Website</div>
+          <div class="cv-entry-desc">Created a professional portfolio website to showcase projects, technical skills, achievements, and academic background.</div>
+          <div class="cv-tags-row">
+            <span class="cv-tag">HTML5</span>
+            <span class="cv-tag">CSS3</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cv-section">
+        <div class="cv-section-title">Research Interest</div>
+        <div class="cv-tags-row">
+          <span class="cv-tag">Software Development</span>
+          <span class="cv-tag">Artificial Intelligence</span>
+        </div>
+      </div>
+
+      <div class="cv-section">
+        <div class="cv-section-title">Membership</div>
+        <div class="cv-entry-desc">Member – Green University Research and Publication Community (GURPC)</div>
+      </div>
+
+      <div class="cv-section">
+        <div class="cv-section-title">Interpersonal Skills</div>
+        <div class="cv-tags-row">
+          <span class="cv-tag">Active Listening</span>
+          <span class="cv-tag">Professional Communication</span>
+          <span class="cv-tag">Respectfulness</span>
+        </div>
+      </div>
+
+      <div class="cv-section">
+        <div class="cv-section-title">Languages</div>
+        <div class="cv-two-col">
+          <div class="cv-entry-desc">Bangla — Native</div>
+          <div class="cv-entry-desc">English — Fluent in speaking, reading, and writing</div>
+        </div>
+      </div>
+
+      <div class="cv-section">
+        <div class="cv-section-title">Reference</div>
+        <div class="cv-two-col">
+          <div class="cv-entry">
+            <div class="cv-entry-title">Dr. Md. Mostafijur Rahman</div>
+            <div class="cv-entry-desc">
+              Chairperson, Department of Software Engineering<br>
+              Green University of Bangladesh<br>
+              Narayangonj, Dhaka, Bangladesh<br>
+              chairman@swe.green.edu.bd
+            </div>
+          </div>
+          <div class="cv-entry">
+            <div class="cv-entry-title">Mr. K.M. Tahlil Mahfuz Faruk</div>
+            <div class="cv-entry-desc">
+              Lecturer, Department of Software Engineering<br>
+              Green University of Bangladesh<br>
+              Narayangonj, Dhaka, Bangladesh<br>
+              tahlil@swe.green.ac.bd
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WHATSAPP FLOATING QUICK-RESPONSE BUTTON -->
+<a href="https://wa.me/8801898665386?text=Hi%20Turzo%2C%20I%20saw%20your%20portfolio%20and%20wanted%20to%20connect!"
+   target="_blank" rel="noopener" class="whatsapp-float" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.472-.148-.67.15-.198.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.004 2.003c-5.514 0-9.997 4.483-9.997 9.997 0 1.762.464 3.484 1.345 4.997L2 22l5.146-1.35a9.96 9.96 0 0 0 4.858 1.237h.004c5.514 0 9.997-4.483 9.997-9.997 0-2.67-1.04-5.18-2.929-7.069a9.935 9.935 0 0 0-7.072-2.818zm0 18.166h-.003a8.16 8.16 0 0 1-4.158-1.14l-.298-.177-3.055.801.816-2.978-.194-.306a8.147 8.147 0 0 1-1.25-4.369c0-4.508 3.669-8.176 8.178-8.176 2.184 0 4.238.851 5.783 2.397a8.126 8.126 0 0 1 2.394 5.786c0 4.508-3.67 8.162-8.213 8.162z"/></svg>
+</a>
 
 <!-- FOOTER -->
 <footer>
@@ -960,11 +1383,30 @@
   }
   type();
 
-  /* Scroll fade-in */
+  /* CV modal */
+  function openCV() {
+    document.getElementById('cvOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeCV() {
+    document.getElementById('cvOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeCV();
+  });
+
+  /* Scroll animations: observe every animated element (multiple animation
+     classes are used across sections so each part of the site animates
+     differently as you scroll). */
+  const animatedSelectors = [
+    '.fade-in', '.anim-left', '.anim-right', '.anim-zoom',
+    '.anim-pop', '.anim-slide-left', '.anim-slide-right', '.anim-flip'
+  ];
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.12 });
-  document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+  document.querySelectorAll(animatedSelectors.join(',')).forEach(el => obs.observe(el));
 </script>
 </body>
 </html>
