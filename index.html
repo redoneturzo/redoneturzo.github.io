@@ -31,7 +31,7 @@
     }
 
     body {
-      background: var(--navy);
+      background: var(--white);
       color: var(--white);
       font-family: 'Inter', sans-serif;
       line-height: 1.6;
@@ -44,9 +44,9 @@
     /* ── NAVBAR ─────────────────────────────────────────── */
     nav {
       position: absolute; top: 0; width: 100%; z-index: 100;
-      background: rgba(13,27,42,0.85);
+      background: rgba(255,255,255,0.92);
       backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(0,212,255,0.12);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
       padding: 0 5%;
       display: flex; align-items: center; justify-content: space-between;
       height: 64px;
@@ -56,7 +56,7 @@
     .nav-logo {
       font-family: 'JetBrains Mono', monospace;
       font-size: 1.1rem; font-weight: 600;
-      color: var(--cyan);
+      color: var(--cyan2);
       letter-spacing: 0.02em;
       flex-shrink: 0;
     }
@@ -71,15 +71,15 @@
       min-width: 0;
     }
     .nav-links a {
-      color: var(--slate2); text-decoration: none;
+      color: var(--navy);
+      text-decoration: none;
       font-size: 0.875rem; font-weight: 500;
       transition: color 0.2s;
       letter-spacing: 0.03em;
       white-space: nowrap;
     }
-    .nav-links a:hover { color: var(--cyan); }
+    .nav-links a:hover { color: var(--cyan2); }
 
-    /* Hamburger */
     .hamburger {
       display: none;
       flex-direction: column;
@@ -92,7 +92,7 @@
     }
     .hamburger span {
       display: block; width: 24px; height: 2px;
-      background: var(--cyan);
+      background: var(--cyan2);
       border-radius: 2px;
       transition: all 0.3s;
     }
@@ -100,14 +100,13 @@
     .hamburger.open span:nth-child(2) { opacity: 0; }
     .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-    /* Mobile nav dropdown */
     .mobile-nav {
       display: none;
       position: fixed;
       top: 64px; left: 0; right: 0;
-      background: rgba(13,27,42,0.97);
+      background: rgba(255,255,255,0.98);
       backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(0,212,255,0.15);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
       padding: 1.2rem 5%;
       z-index: 99;
       flex-direction: column;
@@ -115,15 +114,16 @@
     }
     .mobile-nav.open { display: flex; }
     .mobile-nav a {
-      color: var(--slate2); text-decoration: none;
+      color: var(--navy);
+      text-decoration: none;
       font-size: 1rem; font-weight: 500;
       padding: 0.9rem 0;
-      border-bottom: 1px solid rgba(0,212,255,0.08);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
       transition: color 0.2s;
       display: block;
     }
     .mobile-nav a:last-child { border-bottom: none; }
-    .mobile-nav a:hover { color: var(--cyan); }
+    .mobile-nav a:hover { color: var(--cyan2); }
 
     /* ── HERO ────────────────────────────────────────────── */
     #hero {
@@ -132,13 +132,13 @@
       padding: 100px 5% 60px;
       position: relative;
       overflow: hidden;
-      background-image: url('background.jpg');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      background-color: var(--navy);
+      background-color: #FFFFFF;
     }
     .hero-grid-bg {
+      display: none;
       position: absolute; inset: 0; z-index: 0;
       background-image:
         linear-gradient(rgba(0,212,255,0.04) 1px, transparent 1px),
@@ -147,12 +147,14 @@
       mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
     }
     .hero-glow {
+      display: none;
       position: absolute; top: -100px; right: -100px; z-index: 0;
       width: 600px; height: 600px; border-radius: 50%;
       background: radial-gradient(circle, rgba(0,212,255,0.12) 0%, transparent 70%);
       pointer-events: none;
     }
     .hero-overlay {
+      display: none;
       position: absolute; inset: 0; z-index: 0;
       background: linear-gradient(
         135deg,
@@ -167,7 +169,7 @@
     }
     .hero-eyebrow {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.85rem; color: var(--cyan);
+      font-size: 0.85 rem; color: var(--cyan);
       letter-spacing: 0.08em; text-transform: uppercase;
       margin-bottom: 1.2rem;
       display: flex; align-items: center; gap: 0.6rem;
@@ -178,40 +180,37 @@
     }
     .hero-name {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(2.6rem, 6vw, 4.8rem);
+      font-size: clamp(2.6rem, 6vw, 4.0rem);
       font-weight: 700;
       line-height: 1.08;
       letter-spacing: -0.02em;
       margin-bottom: 0.6rem;
     }
-    .hero-name .first { color: var(--white); }
-    .hero-name .last  { color: var(--cyan); }
+    .hero-name .first { color: var(--navy); }
+    .hero-name .last  { color: var(--cyan2); }
     .hero-name .nick  { color: var(--amber); font-weight: 300; font-size: 0.62em; display: block; margin-top: 0.1em; }
 
     .terminal-line {
       font-family: 'JetBrains Mono', monospace;
       font-size: clamp(0.9rem, 2vw, 1.15rem);
-      color: var(--slate2);
+      color: #444d5a;
       margin: 1.4rem 0 2rem;
-      background: var(--card-bg);
-      border: 1px solid rgba(0,212,255,0.2);
-      border-left: 3px solid var(--cyan);
-      padding: 0.75rem 1.2rem;
-      border-radius: 0 6px 6px 0;
       max-width: 540px;
     }
-    .terminal-line .prompt { color: var(--cyan); margin-right: 0.5rem; }
-    .terminal-line .typed-text { color: var(--white); }
+    .terminal-line .prompt { color: var(--cyan2); margin-right: 0.5rem; }
+    .terminal-line .typed-text { color: var(--navy); }
     .cursor {
       display: inline-block; width: 10px; height: 1em;
-      background: var(--cyan); vertical-align: text-bottom;
+      background: var(--cyan2);
+      vertical-align: text-bottom;
       animation: blink 1s step-end infinite;
       margin-left: 2px;
     }
     @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
 
     .hero-desc {
-      color: var(--slate2); font-size: 1rem;
+      color: #444d5a;
+      font-size: 1rem;
       max-width: 460px; line-height: 1.75;
       margin-bottom: 2.4rem;
     }
@@ -230,8 +229,8 @@
     }
     .btn-primary:hover { background: var(--cyan2); transform: translateY(-2px); }
     .btn-outline {
-      background: transparent; color: var(--cyan);
-      border: 1px solid rgba(0,212,255,0.45);
+      background: transparent; color: var(--cyan2);
+      border: 1px solid rgba(0,170,204,0.45);
       border-radius: 6px;
       padding: 0.75rem 1.8rem;
       font-family: 'Space Grotesk', sans-serif;
@@ -240,7 +239,7 @@
       transition: background 0.2s, border-color 0.2s, transform 0.15s;
       display: inline-flex; align-items: center; gap: 0.5rem;
     }
-    .btn-outline:hover { background: rgba(0,212,255,0.07); border-color: var(--cyan); transform: translateY(-2px); }
+    .btn-outline:hover { background: rgba(0,170,204,0.07); border-color: var(--cyan2); transform: translateY(-2px); }
 
     .hero-stats {
       margin-top: 3.5rem;
@@ -250,12 +249,18 @@
     .stat-num {
       font-family: 'Space Grotesk', sans-serif;
       font-size: 2rem; font-weight: 700;
-      color: var(--cyan); line-height: 1;
+      color: var(--cyan2); line-height: 1;
     }
-    .stat-label { font-size: 0.8rem; color: var(--slate); letter-spacing: 0.04em; margin-top: 0.25rem; }
+    .stat-label { font-size: 0.8rem; color: #667080; letter-spacing: 0.04em; margin-top: 0.25rem; }
 
     /* ── SECTION COMMONS ─────────────────────────────────── */
-    section { padding: 90px 5%; }
+    section {
+      padding: 90px 5%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
     .section-tag {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.75rem; color: var(--cyan);
@@ -315,16 +320,17 @@
       object-fit: cover;
       object-position: center top;
       border-radius: 18px;
-      border: 2px solid rgba(0,212,255,0.25);
+      border: 2px solid #ffffff;
+      background: #ffffff;
       display: block;
       transition: 0.3s;
-      box-shadow: 0 8px 40px rgba(0,212,255,0.15);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
     }
 
     .profile-img:hover {
       transform: scale(1.03);
-      border-color: var(--cyan);
-      box-shadow: 0 0 35px rgba(0,212,255,0.35);
+      border-color: #ffffff;
+      box-shadow: 0 10px 36px rgba(0,0,0,0.12);
     }
     .avatar-initial {
       font-family: 'Space Grotesk', sans-serif;
@@ -345,7 +351,7 @@
     }
     .about-text p { color: #444d5a; line-height: 1.8; margin-bottom: 1rem; }
     .about-text p span { color: var(--cyan2); font-weight: 500; }
-    .about-info-col { display: flex; align-items: center; }
+    .about-info-col { display: flex; flex-direction: column; justify-content: center; gap: 1.5rem; }
     .about-bio {
       margin-top: 2.5rem;
     }
@@ -362,13 +368,13 @@
     .info-value { font-size: 0.95rem; color: var(--navy); font-weight: 500; }
 
     /* ── SKILLS ──────────────────────────────────────────── */
-    #skills { background: #f4f2f2; }
+    #skills { background: #ffffff; }
     #skills .section-title { color: var(--navy); }
     #skills .section-tag { color: var(--cyan2); }
     #skills .section-sub { color: #555e6a; }
     .skills-categories { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; align-items: start; }
     .skill-card {
-      background: #f4f7fa;
+      background: #ffffff;
       border: 1px solid rgba(0,170,204,0.18);
       border-radius: 12px; padding: 1.6rem;
       transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
@@ -437,7 +443,7 @@
     .project-link:hover { color: var(--cyan2); }
 
     /* ── EDUCATION ───────────────────────────────────────── */
-    #education { background: #f4f2f2; }
+    #education { background: #ffffff; }
     #education .section-title { color: var(--navy); }
     #education .section-tag { color: var(--cyan2); }
     #education .section-sub { color: #555e6a; }
@@ -451,30 +457,34 @@
       .edu-grid { grid-template-columns: 1fr; }
     }
     .edu-card {
-      background: #f4f7fa;
+      background: #ffffff;
       border: 1px solid rgba(0,170,204,0.18);
-      border-left: 4px solid var(--cyan2);
-      border-radius: 0 12px 12px 0;
-      padding: 2rem;
+      border-left: 3px solid var(--cyan2);
+      border-radius: 8px;
+      padding: 1.8rem 2rem;
     }
     .edu-degree {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.3rem; font-weight: 700; color: var(--navy);
+      font-size: 1.2rem; font-weight: 700; color: var(--navy);
       margin-bottom: 0.3rem;
     }
-    .edu-school { color: var(--cyan2); font-weight: 500; margin-bottom: 0.4rem; }
+    .edu-school {
+      color: var(--cyan2); font-weight: 500; font-size: 0.92rem;
+      margin-bottom: 0.5rem;
+    }
     .edu-period {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.78rem; color: #b06800; letter-spacing: 0.05em;
+      font-size: 0.78rem; color: #b06800; letter-spacing: 0.04em;
       margin-bottom: 1rem;
     }
-    .edu-detail { color: #555e6a; font-size: 0.93rem; line-height: 1.7; }
-    .edu-badge {
-      display: inline-block; margin-top: 1rem;
+    .edu-detail { color: #555e6a; font-size: 0.92rem; line-height: 1.7; }
+    .edu-footer { margin-top: 1rem; }
+    .edu-badge, .edu-result {
+      display: inline-block;
       background: rgba(0,170,204,0.08);
       border: 1px solid rgba(0,170,204,0.3);
-      color: var(--cyan2); font-size: 0.78rem;
-      padding: 0.3rem 0.9rem; border-radius: 20px;
+      color: var(--cyan2); font-size: 0.76rem; font-weight: 500;
+      padding: 0.3rem 0.8rem; border-radius: 20px;
       font-family: 'JetBrains Mono', monospace;
     }
 
@@ -509,7 +519,7 @@
     .whatsapp-item .whatsapp-icon { background: rgba(37,211,102,0.12); color: #25D366; }
     .whatsapp-item:hover { border-color: rgba(37,211,102,0.5); box-shadow: 0 4px 16px rgba(37,211,102,0.15); }
 
-    /* Floating WhatsApp quick-response button */
+    /* Floating WhatsApp button */
     .whatsapp-float {
       position: fixed;
       bottom: 24px; right: 24px;
@@ -532,88 +542,113 @@
       0%, 100% { box-shadow: 0 4px 18px rgba(37,211,102,0.45); }
       50% { box-shadow: 0 4px 26px rgba(37,211,102,0.75); }
     }
-    .whatsapp-float::after {
-      content: 'Want an instant response? Message me here!';
-      position: absolute;
-      right: calc(100% + 12px);
-      top: 50%;
-      transform: translateY(-50%) translateX(8px);
-      background: var(--navy);
-      color: var(--white);
-      font-family: 'Inter', sans-serif;
-      font-size: 0.82rem;
-      font-weight: 500;
-      white-space: nowrap;
-      padding: 0.55rem 0.9rem;
-      border-radius: 8px;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.25);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.25s ease, transform 0.25s ease;
-    }
-    .whatsapp-float::before {
-      content: '';
-      position: absolute;
-      right: calc(100% + 4px);
-      top: 50%;
-      transform: translateY(-50%) translateX(8px);
-      border: 6px solid transparent;
-      border-left-color: var(--navy);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.25s ease, transform 0.25s ease;
-    }
-    .whatsapp-float:hover::after,
-    .whatsapp-float:hover::before {
-      opacity: 1;
-      transform: translateY(-50%) translateX(0);
-    }
+
     @media (max-width: 768px) {
       .whatsapp-float { bottom: 18px; right: 18px; width: 50px; height: 50px; }
       .whatsapp-float svg { width: 24px; height: 24px; }
-      /* Tooltip fully disabled on touch/small screens: it has no real "hover"
-         on mobile anyway, and its nowrap width was the hidden cause of the
-         whole page shifting right on load. */
-      .whatsapp-float::after,
-      .whatsapp-float::before { content: none; display: none; }
-    }
-    @media (hover: none) {
-      .whatsapp-float::after,
-      .whatsapp-float::before { content: none; display: none; }
     }
 
-    /* Mobile-only auto-appearing WhatsApp tooltip.
-       Touch devices have no hover, so instead of relying on :hover
-       (like the desktop ::after tooltip above), this real element is
-       shown automatically for a few seconds via JS. */
-    .wa-mobile-tip {
+    /* ======================= WHATSAPP HELP POPUP CARD =======================
+       Store-assistant style popup: heading + subtext + "Chat now" / "No thanks"
+       buttons. Works the same way on both desktop and mobile. Shows once,
+       automatically, a short delay after page load. "No thanks" dismisses it
+       for the rest of the session (won't pop up again until the tab/page is
+       reloaded in a new session — remove the sessionStorage check in the JS
+       below if you want it to reappear every reload). */
+    .wa-popup {
       position: fixed;
-      bottom: 84px;
       right: 20px;
+      bottom: 96px;
+      width: 300px;
+      max-width: calc(100vw - 40px);
       background: var(--navy);
-      color: var(--white);
-      font-family: 'Inter', sans-serif;
-      font-size: 0.8rem;
-      font-weight: 500;
-      padding: 0.6rem 0.9rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.25);
-      max-width: 220px;
-      z-index: 149;
+      border-radius: 18px;
+      padding: 1.6rem 1.5rem 1.5rem;
+      box-shadow: 0 16px 45px rgba(0,0,0,0.35);
+      z-index: 155;
       opacity: 0;
-      transform: translateY(8px);
-      transition: opacity 0.3s ease, transform 0.3s ease;
+      transform: translateY(16px) scale(0.98);
       pointer-events: none;
+      transition: opacity 0.3s ease, transform 0.3s ease;
     }
-    .wa-mobile-tip::after {
-      content: '';
+    .wa-popup.show {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: auto;
+    }
+    .wa-popup-close {
       position: absolute;
-      top: 100%;
-      right: 20px;
-      border: 6px solid transparent;
-      border-top-color: var(--navy);
+      top: 12px; right: 14px;
+      background: none; border: none;
+      color: var(--slate2);
+      font-size: 1.1rem;
+      line-height: 1;
+      cursor: pointer;
+      padding: 4px;
+      transition: color 0.2s;
     }
-    .wa-mobile-tip.show { opacity: 1; transform: translateY(0); }
+    .wa-popup-close:hover { color: var(--white); }
+    .wa-popup-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.6rem;
+      padding-right: 1.2rem;
+    }
+    .wa-popup-sub {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.88rem;
+      color: var(--slate2);
+      line-height: 1.6;
+      margin-bottom: 1.4rem;
+    }
+    .wa-popup-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+    .wa-popup-chat {
+      display: block;
+      text-align: center;
+      background: #bfe4f7;
+      color: var(--navy);
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      border: none;
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .wa-popup-chat:hover { background: #d7eefb; transform: translateY(-1px); }
+    .wa-popup-no {
+      display: block;
+      text-align: center;
+      background: transparent;
+      color: var(--white);
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      border: 1px solid rgba(255,255,255,0.5);
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .wa-popup-no:hover { background: rgba(255,255,255,0.08); transform: translateY(-1px); }
+
+    @media (max-width: 480px) {
+      .wa-popup {
+        right: 16px;
+        left: 16px;
+        width: auto;
+        bottom: 88px;
+      }
+    }
+    /* ======================= END WHATSAPP HELP POPUP CARD ======================= */
 
     .contact-form { display: flex; flex-direction: column; gap: 1rem; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
@@ -649,73 +684,22 @@
     .footer-copy { font-size: 0.8rem; color: var(--slate); }
 
     /* ── DIVIDER ─────────────────────────────────────────── */
-    .divider { height: 1px; background: #e2e8f0; }
+    .divider { height: 1px; background: #e2e8f0; display: none; }
 
     /* ── SCROLL ANIMATIONS ───────────────────────────────── */
-    /* Default: fade + slide up (used for general section headers) */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .fade-in.visible { opacity: 1; transform: none; }
-
-    /* About avatar: slides in from LEFT to its place */
-    .anim-left {
-      opacity: 0;
-      transform: translateX(-90px);
-      transition: opacity 0.8s cubic-bezier(.22,.9,.32,1), transform 0.8s cubic-bezier(.22,.9,.32,1);
-    }
-    .anim-left.visible { opacity: 1; transform: none; }
-
-    /* About info/bio text: slides in from RIGHT */
-    .anim-right {
-      opacity: 0;
-      transform: translateX(90px);
-      transition: opacity 0.8s cubic-bezier(.22,.9,.32,1), transform 0.8s cubic-bezier(.22,.9,.32,1);
-    }
-    .anim-right.visible { opacity: 1; transform: none; }
-
-    /* Skills cards: zoom / scale in */
-    .anim-zoom {
-      opacity: 0;
-      transform: scale(0.82);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .anim-zoom.visible { opacity: 1; transform: none; }
-
-    /* Projects cards: pop up from below with slight rotation */
-    .anim-pop {
-      opacity: 0;
-      transform: translateY(50px) rotate(-2deg);
-      transition: opacity 0.65s ease, transform 0.65s ease;
-    }
-    .anim-pop.visible { opacity: 1; transform: none; }
-
-    /* Education cards: slide in from LEFT, alternating could be added */
-    .anim-slide-left {
-      opacity: 0;
-      transform: translateX(-70px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .anim-slide-left.visible { opacity: 1; transform: none; }
-
-    .anim-slide-right {
-      opacity: 0;
-      transform: translateX(70px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .anim-slide-right.visible { opacity: 1; transform: none; }
-
-    /* Contact: flip / fade with slight scale + rotateX */
+    .fade-in,
+    .anim-left,
+    .anim-right,
+    .anim-zoom,
+    .anim-pop,
+    .anim-slide-left,
+    .anim-slide-right,
     .anim-flip {
-      opacity: 0;
-      transform: perspective(800px) rotateX(12deg) translateY(30px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
+      opacity: 1;
+      transform: none;
+      transition: none;
     }
-    .anim-flip.visible { opacity: 1; transform: none; }
 
-    /* stagger delays for grouped children */
     .delay-1 { transition-delay: 0.08s; }
     .delay-2 { transition-delay: 0.16s; }
     .delay-3 { transition-delay: 0.24s; }
@@ -725,8 +709,8 @@
     /* ── CV BUTTON (nav) ─────────────────────────────────── */
     .cv-btn {
       background: transparent;
-      border: 1px solid rgba(0,212,255,0.45);
-      color: var(--cyan);
+      border: 1px solid rgba(0,170,204,0.45);
+      color: var(--cyan2);
       font-family: 'Space Grotesk', sans-serif;
       font-weight: 600; font-size: 0.82rem;
       padding: 0.45rem 1.1rem;
@@ -738,7 +722,7 @@
       margin-left: 1.5rem;
       white-space: nowrap;
     }
-    .cv-btn:hover { background: rgba(0,212,255,0.1); transform: translateY(-1px); }
+    .cv-btn:hover { background: rgba(0,170,204,0.1); transform: translateY(-1px); }
 
     /* ── CV MODAL ────────────────────────────────────────── */
     .cv-overlay {
@@ -838,7 +822,11 @@
       .nav-links { display: none; }
       .hamburger { display: flex; }
       .hero-stats { gap: 1.5rem; }
-      section { padding: 60px 5%; }
+      section {
+        padding: 60px 5%;
+        min-height: auto;
+        display: block;
+      }
       nav { position: fixed; }
 
       footer {
@@ -896,11 +884,8 @@
   <div class="hero-glow"></div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <!-- <div class="hero-eyebrow">Hello, World — I'm</div> -->
     <h1 class="hero-name">
       <span class="first">Md. Redone Prodhan Turzo</span>
-      <!-- <span class="last">Turzo</span> -->
-      <!-- <span class="nick">// Software Engineer in the Making</span> -->
     </h1>
     <div class="terminal-line">
       <span class="prompt"></span>  
@@ -913,18 +898,15 @@
 
 <!-- ABOUT -->
 <section id="about">
-  <div class="fade-in">
-    <!-- <div class="section-tag">get to know me</div> -->
-    <h2 class="section-title">About myself</h2>
-    <!-- <p class="section-sub">A quick peek into who I am and what drives me.</p> -->
-  </div>
-  <!-- top row: pic + info -->
   <div class="about-grid">
     <div class="about-avatar-wrap anim-left">
-      <img src="turzoo.png" alt="Md. Redone Prodhan Turzo" class="profile-img">
+      <img src="turzoo.png" alt="Md. Redone Prodhan Turzo" class="turzoo.png">
       <div class="avatar-badge">BSc. SWE</div>
     </div>
     <div class="about-info-col anim-right">
+      <div class="fade-in">
+        <h2 class="section-title">About myself</h2>
+      </div>
       <div class="info-list">
         <div class="info-item">
           <span class="info-label">University</span>
@@ -945,7 +927,6 @@
       </div>
     </div>
   </div>
-  <!-- bottom row: paragraphs full width -->
   <div class="about-bio fade-in">
     <p>I'm <span>Md. Redone Prodhan Turzo</span>, a dedicated Software Engineering undergraduate at Green University of Bangladesh. I thrive at the intersection of logical problem-solving and creative design.</p>
     <p>My journey in tech began with curiosity — taking apart programs to understand how they worked — and has evolved into a genuine passion for crafting software that is both <span>elegant and effective</span>.</p>
@@ -958,7 +939,6 @@
 <!-- SKILLS -->
 <section id="skills">
   <div class="fade-in">
-    <!-- <div class="section-tag">what I work with</div> -->
     <h2 class="section-title">Skills & Technologies</h2>
     <p class="section-sub">Tools and languages I've built with and keep sharpening.</p>
   </div>
@@ -983,8 +963,6 @@
         <span class="skill-tag">GitHub</span>
         <span class="skill-tag">VS Code</span>
         <span class="skill-tag">Codeblocks</span>
-        <!-- <span class="skill-tag">Figma</span>
-        <span class="skill-tag">Postman</span> -->
       </div>
     </div>
 
@@ -997,7 +975,6 @@
         <span class="skill-tag">Active Listening</span>
         <span class="skill-tag">Verbal Communication</span>
         <span class="skill-tag">Positivity</span>
-        <!--<span class="skill-tag">Postman</span> -->
       </div>
     </div>
   </div>
@@ -1116,7 +1093,7 @@
     <p class="section-sub">The institution that has shaped my technical foundation.</p>
   </div>
   <div class="edu-grid">
-    <div class="edu-card anim-slide-left">
+    <div class="edu-card">
       <div class="edu-degree">Bachelor of Science in Software Engineering</div>
       <div class="edu-school">Green University of Bangladesh</div>
       <div class="edu-period">2026 – Present (Running)</div>
@@ -1125,19 +1102,23 @@
         database management, operating systems, software testing, and project management.
         Actively involved in academic projects and technical coursework with a focus on full-stack development.
       </div>
-      <span class="edu-badge">Currently Enrolled</span>
+      <div class="edu-footer">
+        <span class="edu-badge">Currently Enrolled</span>
+      </div>
     </div>
-    <div class="edu-card anim-slide-right">
-      <div class="edu-degree">Higher secondary certificate examination</div>
-      <div class="edu-school">Nirjhor cantonment public school and college</div>
-      <div class="edu-period">2023 – 2025 </div>
+    <div class="edu-card">
+      <div class="edu-degree">Higher Secondary Certificate Examination</div>
+      <div class="edu-school">Nirjhor Cantonment Public School and College</div>
+      <div class="edu-period">2023 – 2025</div>
       <div class="edu-detail">
-        I have successfully completed my Higher Secondary Certificate (HSC) under 
-        the Comprehensive Curriculum, with a strong academic background in Physics, 
-        Chemistry, Biology, Higher Mathematics, ICT, and English. 
+        I have successfully completed my Higher Secondary Certificate (HSC) under
+        the Comprehensive Curriculum, with a strong academic background in Physics,
+        Chemistry, Biology, Higher Mathematics, ICT, and English.
         This program enhanced my scientific skills.
       </div>
-      <span class="edu-badge">Result: 4.17</span>
+      <div class="edu-footer">
+        <span class="edu-result">Result: 4.17</span>
+      </div>
     </div>
   </div>
 </section>
@@ -1392,14 +1373,23 @@
   </div>
 </div>
 
-<!-- WHATSAPP FLOATING QUICK-RESPONSE BUTTON -->
+<!-- WHATSAPP FLOATING BUTTON -->
 <a href="https://wa.me/8801898665386?text=Hi%20Turzo%2C%20I%20saw%20your%20portfolio%20and%20wanted%20to%20connect!"
    target="_blank" rel="noopener" class="whatsapp-float" aria-label="Chat on WhatsApp">
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.472-.148-.67.15-.198.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.004 2.003c-5.514 0-9.997 4.483-9.997 9.997 0 1.762.464 3.484 1.345 4.997L2 22l5.146-1.35a9.96 9.96 0 0 0 4.858 1.237h.004c5.514 0 9.997-4.483 9.997-9.997 0-2.67-1.04-5.18-2.929-7.069a9.935 9.935 0 0 0-7.072-2.818zm0 18.166h-.003a8.16 8.16 0 0 1-4.158-1.14l-.298-.177-3.055.801.816-2.978-.194-.306a8.147 8.147 0 0 1-1.25-4.369c0-4.508 3.669-8.176 8.178-8.176 2.184 0 4.238.851 5.783 2.397a8.126 8.126 0 0 1 2.394 5.786c0 4.508-3.67 8.162-8.213 8.162z"/></svg>
 </a>
 
-<!-- Auto-appearing WhatsApp message bubble for touch devices (no hover on mobile) -->
-<div class="wa-mobile-tip" id="waMobileTip">Want an instant response? Message me here! 👋</div>
+<!-- WHATSAPP "CAN WE HELP YOU?" POPUP CARD (desktop + mobile) -->
+<div class="wa-popup" id="waPopup">
+  <button class="wa-popup-close" onclick="closeWaPopup()" aria-label="Close">✕</button>
+  <div class="wa-popup-title">Can we help you?</div>
+  <div class="wa-popup-sub">I'm available on WhatsApp — usually a quick reply away.</div>
+  <div class="wa-popup-actions">
+    <a href="https://wa.me/8801898665386?text=Hi%20Turzo%2C%20I%20saw%20your%20portfolio%20and%20wanted%20to%20connect!"
+       target="_blank" rel="noopener" class="wa-popup-chat" onclick="closeWaPopup()">Chat now</a>
+    <button class="wa-popup-no" onclick="closeWaPopup()">No thanks</button>
+  </div>
+</div>
 
 <!-- FOOTER -->
 <footer>
@@ -1456,9 +1446,7 @@
     if (e.key === 'Escape') closeCV();
   });
 
-  /* Scroll animations: observe every animated element (multiple animation
-     classes are used across sections so each part of the site animates
-     differently as you scroll). */
+  /* Scroll animations */
   const animatedSelectors = [
     '.fade-in', '.anim-left', '.anim-right', '.anim-zoom',
     '.anim-pop', '.anim-slide-left', '.anim-slide-right', '.anim-flip'
@@ -1468,17 +1456,27 @@
   }, { threshold: 0.12 });
   document.querySelectorAll(animatedSelectors.join(',')).forEach(el => obs.observe(el));
 
-  /* Mobile WhatsApp tooltip: there is no hover on touch devices, so the
-     desktop ::after tooltip never shows there. Instead, show the same
-     message automatically for a few seconds after the page loads. */
+  /* WhatsApp "Can we help you?" popup — same behaviour on desktop and
+     mobile. Shows automatically a couple of seconds after page load.
+     "No thanks" (or the ✕) dismisses it and it won't show again for the
+     rest of this browser session (sessionStorage). Delete the
+     sessionStorage lines below if you want it to appear on every reload. */
   (function () {
-    const tip = document.getElementById('waMobileTip');
-    if (!tip) return;
-    const isTouch = window.matchMedia('(hover: none)').matches || window.innerWidth <= 768;
-    if (!isTouch) { tip.remove(); return; } // desktop already has hover
-    setTimeout(() => tip.classList.add('show'), 1500);
-    setTimeout(() => tip.classList.remove('show'), 7000);
-    document.querySelector('.whatsapp-float').addEventListener('click', () => tip.classList.remove('show'));
+    const popup = document.getElementById('waPopup');
+    if (!popup) return;
+    const DISMISS_KEY = 'waPopupDismissed';
+
+    window.closeWaPopup = function () {
+      popup.classList.remove('show');
+      try { sessionStorage.setItem(DISMISS_KEY, '1'); } catch (e) {}
+    };
+
+    let alreadyDismissed = false;
+    try { alreadyDismissed = sessionStorage.getItem(DISMISS_KEY) === '1'; } catch (e) {}
+
+    if (!alreadyDismissed) {
+      setTimeout(() => popup.classList.add('show'), 2000);
+    }
   })();
 </script>
 </body>
