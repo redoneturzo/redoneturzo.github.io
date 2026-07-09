@@ -699,45 +699,34 @@
     }
 
     /* ── SCROLL ANIMATIONS ───────────────────────────────── */
+    /* All animations OFF except the About image (.anim-left) */
     .fade-in,
-    .anim-left,
     .anim-right,
     .anim-zoom,
     .anim-pop,
     .anim-slide-left,
     .anim-slide-right,
     .anim-flip {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+
+    .anim-left {
       opacity: 0;
+      transform: translateX(-70px);
       transition: opacity 0.8s cubic-bezier(0.22, 0.61, 0.36, 1),
                   transform 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
       will-change: opacity, transform;
     }
-
-    .fade-in        { transform: translateY(24px); }
-    .anim-left,
-    .anim-slide-left { transform: translateX(-70px); }
-    .anim-right,
-    .anim-slide-right { transform: translateX(70px); }
-    .anim-zoom       { transform: scale(0.9); }
-    .anim-pop        { transform: translateY(30px) scale(0.96); }
-    .anim-flip       { transform: translateY(20px); }
-
-    .fade-in.visible,
-    .anim-left.visible,
-    .anim-right.visible,
-    .anim-zoom.visible,
-    .anim-pop.visible,
-    .anim-slide-left.visible,
-    .anim-slide-right.visible,
-    .anim-flip.visible {
+    .anim-left.visible {
       opacity: 1;
       transform: none;
     }
 
     /* Respect users who prefer reduced motion */
     @media (prefers-reduced-motion: reduce) {
-      .fade-in, .anim-left, .anim-right, .anim-zoom,
-      .anim-pop, .anim-slide-left, .anim-slide-right, .anim-flip {
+      .anim-left {
         opacity: 1;
         transform: none;
         transition: none;
