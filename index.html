@@ -685,6 +685,18 @@
 
     /* ── DIVIDER ─────────────────────────────────────────── */
     .divider { height: 1px; background: #e2e8f0; display: none; }
+    .hero-about-divider {
+      display: block;
+      height: 1px;
+      margin: 0 5%;
+      background: linear-gradient(
+        90deg,
+        rgba(0,170,204,0) 0%,
+        rgba(0,170,204,0.35) 20%,
+        rgba(0,170,204,0.35) 80%,
+        rgba(0,170,204,0) 100%
+      );
+    }
 
     /* ── SCROLL ANIMATIONS ───────────────────────────────── */
     .fade-in,
@@ -695,9 +707,42 @@
     .anim-slide-left,
     .anim-slide-right,
     .anim-flip {
+      opacity: 0;
+      transition: opacity 0.8s cubic-bezier(0.22, 0.61, 0.36, 1),
+                  transform 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+      will-change: opacity, transform;
+    }
+
+    .fade-in        { transform: translateY(24px); }
+    .anim-left,
+    .anim-slide-left { transform: translateX(-70px); }
+    .anim-right,
+    .anim-slide-right { transform: translateX(70px); }
+    .anim-zoom       { transform: scale(0.9); }
+    .anim-pop        { transform: translateY(30px) scale(0.96); }
+    .anim-flip       { transform: translateY(20px); }
+
+    .fade-in.visible,
+    .anim-left.visible,
+    .anim-right.visible,
+    .anim-zoom.visible,
+    .anim-pop.visible,
+    .anim-slide-left.visible,
+    .anim-slide-right.visible,
+    .anim-flip.visible {
       opacity: 1;
       transform: none;
-      transition: none;
+    }
+
+    /* Respect users who prefer reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      .fade-in, .anim-left, .anim-right, .anim-zoom,
+      .anim-pop, .anim-slide-left, .anim-slide-right, .anim-flip {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+      html { scroll-behavior: auto; }
     }
 
     .delay-1 { transition-delay: 0.08s; }
@@ -894,7 +939,7 @@
   </div>
 </section>
 
-<div class="divider"></div>
+<div class="hero-about-divider"></div>
 
 <!-- ABOUT -->
 <section id="about">
@@ -1452,8 +1497,13 @@
     '.anim-pop', '.anim-slide-left', '.anim-slide-right', '.anim-flip'
   ];
   const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.12 });
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        obs.unobserve(e.target); /* animate once, then stop watching for smoother scroll perf */
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
   document.querySelectorAll(animatedSelectors.join(',')).forEach(el => obs.observe(el));
 
   /* WhatsApp "Can we help you?" popup — same behaviour on desktop and
