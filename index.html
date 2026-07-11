@@ -60,7 +60,6 @@
       letter-spacing: 0.02em;
       flex-shrink: 0;
     }
-    .nav-logo span { color: var(--amber); }
     .nav-links {
       display: flex;
       align-items: center;
@@ -132,51 +131,11 @@
       padding: 100px 5% 60px;
       position: relative;
       overflow: hidden;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
       background-color: #FFFFFF;
-    }
-    .hero-grid-bg {
-      display: none;
-      position: absolute; inset: 0; z-index: 0;
-      background-image:
-        linear-gradient(rgba(0,212,255,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,212,255,0.04) 1px, transparent 1px);
-      background-size: 50px 50px;
-      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
-    }
-    .hero-glow {
-      display: none;
-      position: absolute; top: -100px; right: -100px; z-index: 0;
-      width: 600px; height: 600px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(0,212,255,0.12) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .hero-overlay {
-      display: none;
-      position: absolute; inset: 0; z-index: 0;
-      background: linear-gradient(
-        135deg,
-        rgba(13,27,42,0.88) 0%,
-        rgba(13,27,42,0.75) 50%,
-        rgba(13,27,42,0.60) 100%
-      );
     }
     .hero-content {
       position: relative; z-index: 1;
       max-width: 780px;
-    }
-    .hero-eyebrow {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.85 rem; color: var(--cyan);
-      letter-spacing: 0.08em; text-transform: uppercase;
-      margin-bottom: 1.2rem;
-      display: flex; align-items: center; gap: 0.6rem;
-    }
-    .hero-eyebrow::before {
-      content: ''; display: block;
-      width: 28px; height: 1px; background: var(--cyan);
     }
     .hero-name {
       font-family: 'Space Grotesk', sans-serif;
@@ -187,8 +146,6 @@
       margin-bottom: 0.6rem;
     }
     .hero-name .first { color: var(--navy); }
-    .hero-name .last  { color: var(--cyan2); }
-    .hero-name .nick  { color: var(--amber); font-weight: 300; font-size: 0.62em; display: block; margin-top: 0.1em; }
 
     .terminal-line {
       font-family: 'JetBrains Mono', monospace;
@@ -197,7 +154,6 @@
       margin: 1.4rem 0 2rem;
       max-width: 540px;
     }
-    .terminal-line .prompt { color: var(--cyan2); margin-right: 0.5rem; }
     .terminal-line .typed-text { color: var(--navy); }
     .cursor {
       display: inline-block; width: 10px; height: 1em;
@@ -207,51 +163,6 @@
       margin-left: 2px;
     }
     @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
-
-    .hero-desc {
-      color: #444d5a;
-      font-size: 1rem;
-      max-width: 460px; line-height: 1.75;
-      margin-bottom: 2.4rem;
-    }
-    .hero-cta {
-      display: flex; gap: 1rem; flex-wrap: wrap;
-    }
-    .btn-primary {
-      background: var(--cyan); color: var(--navy);
-      border: none; border-radius: 6px;
-      padding: 0.75rem 1.8rem;
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 600; font-size: 0.95rem;
-      cursor: pointer; text-decoration: none;
-      transition: background 0.2s, transform 0.15s;
-      display: inline-flex; align-items: center; gap: 0.5rem;
-    }
-    .btn-primary:hover { background: var(--cyan2); transform: translateY(-2px); }
-    .btn-outline {
-      background: transparent; color: var(--cyan2);
-      border: 1px solid rgba(0,170,204,0.45);
-      border-radius: 6px;
-      padding: 0.75rem 1.8rem;
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 500; font-size: 0.95rem;
-      cursor: pointer; text-decoration: none;
-      transition: background 0.2s, border-color 0.2s, transform 0.15s;
-      display: inline-flex; align-items: center; gap: 0.5rem;
-    }
-    .btn-outline:hover { background: rgba(0,170,204,0.07); border-color: var(--cyan2); transform: translateY(-2px); }
-
-    .hero-stats {
-      margin-top: 3.5rem;
-      display: flex; gap: 2.5rem; flex-wrap: wrap;
-    }
-    .stat-item { display: flex; flex-direction: column; }
-    .stat-num {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 2rem; font-weight: 700;
-      color: var(--cyan2); line-height: 1;
-    }
-    .stat-label { font-size: 0.8rem; color: #667080; letter-spacing: 0.04em; margin-top: 0.25rem; }
 
     /* ── SECTION COMMONS ─────────────────────────────────── */
     section {
@@ -293,26 +204,7 @@
       display: grid; grid-template-columns: 1fr 1.4fr;
       gap: 4rem; align-items: center;
     }
-    .about-avatar-wrap {
-      position: relative;
-      display: flex;
-      justify-content: center;
-    }
-    .avatar-placeholder {
-      width: 100%; max-width: 300px;
-      aspect-ratio: 1;
-      border-radius: 18px;
-      background: var(--navy3);
-      border: 2px solid rgba(0,212,255,0.2);
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      gap: 0.8rem; position: relative; overflow: hidden;
-    }
-    .avatar-placeholder::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: linear-gradient(135deg, rgba(0,212,255,0.06) 0%, transparent 60%);
-    }
-
+    .about-avatar-wrap { position: relative; display: flex; justify-content: center; }
     .turzoo-img {
       width: 100%;
       max-width: 340px;
@@ -323,24 +215,8 @@
       border: 2px solid #ffffff;
       background: #ffffff;
       display: block;
-      transition: 0.3s;
+      transition: 0.3 s;
       box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-    }
-
-    .turzoo-img :hover {
-      transform: scale(1.03);
-      border-color: #ffffff;
-      box-shadow: 0 10px 36px rgba(0,0,0,0.12);
-    }
-    .avatar-initial {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 5rem; font-weight: 700; color: var(--cyan);
-      line-height: 1; z-index: 1;
-    }
-    .avatar-sub-text {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.75rem; color: var(--slate); z-index: 1;
-      letter-spacing: 0.05em;
     }
     .avatar-badge {
       position: absolute; bottom: 16px; right: calc(50% - 170px + 16px);
@@ -349,12 +225,8 @@
       padding: 0.3rem 0.6rem; border-radius: 4px;
       letter-spacing: 0.04em;
     }
-    .about-text p { color: #444d5a; line-height: 1.8; margin-bottom: 1rem; }
-    .about-text p span { color: var(--cyan2); font-weight: 500; }
     .about-info-col { display: flex; flex-direction: column; justify-content: center; gap: 1.5rem; }
-    .about-bio {
-      margin-top: 2.5rem;
-    }
+    .about-bio { margin-top: 2.5rem; }
     .about-bio p { color: #444d5a; line-height: 1.8; margin-bottom: 1rem; }
     .about-bio p:last-child { margin-bottom: 0; }
     .about-bio p span { color: var(--cyan2); font-weight: 500; }
@@ -442,20 +314,60 @@
     }
     .project-link:hover { color: var(--cyan2); }
 
+    /* ── PROBLEM SOLVING ─────────────────────────────────── */
+    #problem-solving { background: #ffffff; }
+    #problem-solving .section-title { color: var(--navy); }
+    #problem-solving .section-tag { color: var(--cyan2); }
+    #problem-solving .section-sub { color: #555e6a; }
+    .ps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .ps-card {
+      background: #f4f7fa;
+      border: 1px solid rgba(0,170,204,0.15);
+      border-radius: 14px;
+      padding: 1.8rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+    .ps-card:hover { border-color: rgba(0,170,204,0.45); transform: translateY(-4px); box-shadow: 0 8px 28px rgba(0,170,204,0.1); }
+    .ps-card-head { display: flex; align-items: center; gap: 0.9rem; }
+    .ps-icon {
+      width: 44px; height: 44px; border-radius: 10px;
+      background: rgba(0,170,204,0.1);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      color: var(--cyan2);
+    }
+    .ps-icon svg { width: 24px; height: 24px; }
+    .ps-platform { font-family: 'Space Grotesk', sans-serif; font-size: 1.05rem; font-weight: 700; color: var(--navy); }
+    .ps-username { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: #8899AA; margin-top: 0.15rem; }
+    .ps-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.6rem; }
+    .ps-stat { text-align: center; background: #ffffff; border: 1px solid rgba(0,170,204,0.15); border-radius: 8px; padding: 0.7rem 0.4rem; }
+    .ps-stat-num { font-family: 'Space Grotesk', sans-serif; font-size: 1.3rem; font-weight: 700; color: var(--cyan2); line-height: 1; }
+    .ps-stat-label { font-size: 0.65rem; color: #8899AA; letter-spacing: 0.03em; text-transform: uppercase; margin-top: 0.3rem; }
+    .ps-view-btn {
+      align-self: flex-start;
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      background: transparent;
+      color: var(--cyan2);
+      border: 1px solid rgba(0,170,204,0.45);
+      border-radius: 6px;
+      padding: 0.55rem 1.2rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600; font-size: 0.85rem;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .ps-view-btn:hover { background: rgba(0,170,204,0.08); transform: translateY(-1px); }
+
     /* ── EDUCATION ───────────────────────────────────────── */
     #education { background: #ffffff; }
     #education .section-title { color: var(--navy); }
     #education .section-tag { color: var(--cyan2); }
     #education .section-sub { color: #555e6a; }
-    .edu-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-      align-items: start;
-    }
-    @media (max-width: 768px) {
-      .edu-grid { grid-template-columns: 1fr; }
-    }
+    .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: start; }
+    @media (max-width: 768px) { .edu-grid { grid-template-columns: 1fr; } }
     .edu-card {
       background: #ffffff;
       border: 1px solid rgba(0,170,204,0.18);
@@ -463,20 +375,9 @@
       border-radius: 8px;
       padding: 1.8rem 2rem;
     }
-    .edu-degree {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.2rem; font-weight: 700; color: var(--navy);
-      margin-bottom: 0.3rem;
-    }
-    .edu-school {
-      color: var(--cyan2); font-weight: 500; font-size: 0.92rem;
-      margin-bottom: 0.5rem;
-    }
-    .edu-period {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.78rem; color: #b06800; letter-spacing: 0.04em;
-      margin-bottom: 1rem;
-    }
+    .edu-degree { font-family: 'Space Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; color: var(--navy); margin-bottom: 0.3rem; }
+    .edu-school { color: var(--cyan2); font-weight: 500; font-size: 0.92rem; margin-bottom: 0.5rem; }
+    .edu-period { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: #b06800; letter-spacing: 0.04em; margin-bottom: 1rem; }
     .edu-detail { color: #555e6a; font-size: 0.92rem; line-height: 1.7; }
     .edu-footer { margin-top: 1rem; }
     .edu-badge, .edu-result {
@@ -493,10 +394,7 @@
     #contact .section-title { color: var(--navy); }
     #contact .section-tag { color: var(--cyan2); }
     #contact .section-sub { color: #555e6a; }
-    .contact-wrap {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 4rem; align-items: start;
-    }
+    .contact-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
     .contact-info p { color: #555e6a; line-height: 1.75; margin-bottom: 2rem; }
     .contact-items { display: flex; flex-direction: column; gap: 1rem; }
     .contact-item {
@@ -519,7 +417,6 @@
     .whatsapp-item .whatsapp-icon { background: rgba(37,211,102,0.12); color: #25D366; }
     .whatsapp-item:hover { border-color: rgba(37,211,102,0.5); box-shadow: 0 4px 16px rgba(37,211,102,0.15); }
 
-    /* Floating WhatsApp button */
     .whatsapp-float {
       position: fixed;
       bottom: 24px; right: 24px;
@@ -533,34 +430,21 @@
       transition: transform 0.2s, box-shadow 0.2s;
       animation: wa-pulse 2.4s ease-in-out infinite;
     }
-    .whatsapp-float:hover {
-      transform: scale(1.08);
-      box-shadow: 0 6px 24px rgba(37,211,102,0.6);
-    }
+    .whatsapp-float:hover { transform: scale(1.08); box-shadow: 0 6px 24px rgba(37,211,102,0.6); }
     .whatsapp-float svg { width: 28px; height: 28px; fill: #ffffff; }
     @keyframes wa-pulse {
       0%, 100% { box-shadow: 0 4px 18px rgba(37,211,102,0.45); }
       50% { box-shadow: 0 4px 26px rgba(37,211,102,0.75); }
     }
-
     @media (max-width: 768px) {
       .whatsapp-float { bottom: 18px; right: 18px; width: 50px; height: 50px; }
       .whatsapp-float svg { width: 24px; height: 24px; }
     }
 
-    /* ======================= WHATSAPP HELP POPUP CARD =======================
-       Store-assistant style popup: heading + subtext + "Chat now" / "No thanks"
-       buttons. Works the same way on both desktop and mobile. Shows once,
-       automatically, a short delay after page load. "No thanks" dismisses it
-       for the rest of the session (won't pop up again until the tab/page is
-       reloaded in a new session — remove the sessionStorage check in the JS
-       below if you want it to reappear every reload). */
     .wa-popup {
       position: fixed;
-      right: 20px;
-      bottom: 96px;
-      width: 300px;
-      max-width: calc(100vw - 40px);
+      right: 20px; bottom: 96px;
+      width: 300px; max-width: calc(100vw - 40px);
       background: var(--navy);
       border-radius: 18px;
       padding: 1.6rem 1.5rem 1.5rem;
@@ -571,84 +455,37 @@
       pointer-events: none;
       transition: opacity 0.3s ease, transform 0.3s ease;
     }
-    .wa-popup.show {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-      pointer-events: auto;
-    }
+    .wa-popup.show { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
     .wa-popup-close {
-      position: absolute;
-      top: 12px; right: 14px;
-      background: none; border: none;
-      color: var(--slate2);
-      font-size: 1.1rem;
-      line-height: 1;
-      cursor: pointer;
-      padding: 4px;
+      position: absolute; top: 12px; right: 14px;
+      background: none; border: none; color: var(--slate2);
+      font-size: 1.1rem; line-height: 1; cursor: pointer; padding: 4px;
       transition: color 0.2s;
     }
     .wa-popup-close:hover { color: var(--white); }
-    .wa-popup-title {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--white);
-      margin-bottom: 0.6rem;
-      padding-right: 1.2rem;
-    }
-    .wa-popup-sub {
-      font-family: 'Inter', sans-serif;
-      font-size: 0.88rem;
-      color: var(--slate2);
-      line-height: 1.6;
-      margin-bottom: 1.4rem;
-    }
-    .wa-popup-actions {
-      display: flex;
-      flex-direction: column;
-      gap: 0.7rem;
-    }
+    .wa-popup-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; color: var(--white); margin-bottom: 0.6rem; padding-right: 1.2rem; }
+    .wa-popup-sub { font-family: 'Inter', sans-serif; font-size: 0.88rem; color: var(--slate2); line-height: 1.6; margin-bottom: 1.4rem; }
+    .wa-popup-actions { display: flex; flex-direction: column; gap: 0.7rem; }
     .wa-popup-chat {
-      display: block;
-      text-align: center;
-      background: #bfe4f7;
-      color: var(--navy);
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700;
-      font-size: 0.95rem;
-      border: none;
-      border-radius: 8px;
-      padding: 0.75rem 1rem;
-      text-decoration: none;
-      cursor: pointer;
+      display: block; text-align: center;
+      background: #bfe4f7; color: var(--navy);
+      font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 0.95rem;
+      border: none; border-radius: 8px; padding: 0.75rem 1rem;
+      text-decoration: none; cursor: pointer;
       transition: background 0.2s, transform 0.15s;
     }
     .wa-popup-chat:hover { background: #d7eefb; transform: translateY(-1px); }
     .wa-popup-no {
-      display: block;
-      text-align: center;
-      background: transparent;
-      color: var(--white);
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700;
-      font-size: 0.95rem;
-      border: 1px solid rgba(255,255,255,0.5);
-      border-radius: 8px;
-      padding: 0.75rem 1rem;
-      cursor: pointer;
-      transition: background 0.2s, transform 0.15s;
+      display: block; text-align: center;
+      background: transparent; color: var(--white);
+      font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 0.95rem;
+      border: 1px solid rgba(255,255,255,0.5); border-radius: 8px; padding: 0.75rem 1rem;
+      cursor: pointer; transition: background 0.2s, transform 0.15s;
     }
     .wa-popup-no:hover { background: rgba(255,255,255,0.08); transform: translateY(-1px); }
-
     @media (max-width: 480px) {
-      .wa-popup {
-        right: 16px;
-        left: 16px;
-        width: auto;
-        bottom: 88px;
-      }
+      .wa-popup { right: 16px; left: 16px; width: auto; bottom: 88px; }
     }
-    /* ======================= END WHATSAPP HELP POPUP CARD ======================= */
 
     .contact-form { display: flex; flex-direction: column; gap: 1rem; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
@@ -667,6 +504,18 @@
     .form-group input:focus, .form-group textarea:focus { border-color: var(--cyan2); }
     .form-group textarea { resize: vertical; min-height: 120px; }
     .form-group input::placeholder, .form-group textarea::placeholder { color: #aab4be; }
+    .form-submit-btn {
+      background: var(--cyan); color: var(--navy);
+      border: none; border-radius: 6px;
+      padding: 0.75rem 1.8rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600; font-size: 0.95rem;
+      cursor: pointer;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      align-self: flex-start;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .form-submit-btn:hover { background: var(--cyan2); transform: translateY(-2px); }
 
     /* ── FOOTER ──────────────────────────────────────────── */
     footer {
@@ -676,69 +525,28 @@
       display: flex; align-items: center; justify-content: space-between;
       flex-wrap: wrap; gap: 1rem;
     }
-    .footer-brand {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.88rem; color: var(--slate);
-    }
-    .footer-brand span { color: var(--cyan); }
+    .footer-brand { font-family: 'JetBrains Mono', monospace; font-size: 0.88rem; color: var(--slate); }
     .footer-copy { font-size: 0.8rem; color: var(--slate); }
 
-    /* ── DIVIDER ─────────────────────────────────────────── */
-    .divider { height: 1px; background: #e2e8f0; display: none; }
     .hero-about-divider {
       display: block;
       height: 1px;
       margin: 0 5%;
-      background: linear-gradient(
-        90deg,
-        rgba(0,170,204,0) 0%,
-        rgba(0,170,204,0.35) 20%,
-        rgba(0,170,204,0.35) 80%,
-        rgba(0,170,204,0) 100%
-      );
+      background: linear-gradient(90deg, rgba(0,170,204,0) 0%, rgba(0,170,204,0.35) 20%, rgba(0,170,204,0.35) 80%, rgba(0,170,204,0) 100%);
     }
 
-    /* ── SCROLL ANIMATIONS ───────────────────────────────── */
-    /* All animations OFF except the About image (.anim-left) */
-    .fade-in,
-    .anim-right,
-    .anim-zoom,
-    .anim-pop,
-    .anim-slide-left,
-    .anim-slide-right,
-    .anim-flip {
-      opacity: 1;
-      transform: none;
-      transition: none;
-    }
-
+    /* ── SCROLL ANIMATION (About image only) ─────────────── */
     .anim-left {
       opacity: 0;
       transform: translateX(-70px);
-      transition: opacity 0.8s cubic-bezier(0.22, 0.61, 0.36, 1),
-                  transform 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+      transition: opacity 0.8s cubic-bezier(0.22, 0.61, 0.36, 1), transform 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
       will-change: opacity, transform;
     }
-    .anim-left.visible {
-      opacity: 1;
-      transform: none;
-    }
-
-    /* Respect users who prefer reduced motion */
+    .anim-left.visible { opacity: 1; transform: none; }
     @media (prefers-reduced-motion: reduce) {
-      .anim-left {
-        opacity: 1;
-        transform: none;
-        transition: none;
-      }
+      .anim-left { opacity: 1; transform: none; transition: none; }
       html { scroll-behavior: auto; }
     }
-
-    .delay-1 { transition-delay: 0.08s; }
-    .delay-2 { transition-delay: 0.16s; }
-    .delay-3 { transition-delay: 0.24s; }
-    .delay-4 { transition-delay: 0.32s; }
-    .delay-5 { transition-delay: 0.4s; }
 
     /* ── CV BUTTON (nav) ─────────────────────────────────── */
     .cv-btn {
@@ -778,10 +586,7 @@
       box-shadow: 0 20px 60px rgba(0,0,0,0.35);
       animation: cv-pop 0.3s ease;
     }
-    @keyframes cv-pop {
-      from { opacity: 0; transform: translateY(20px) scale(0.98); }
-      to   { opacity: 1; transform: none; }
-    }
+    @keyframes cv-pop { from { opacity: 0; transform: translateY(20px) scale(0.98); } to { opacity: 1; transform: none; } }
     .cv-toolbar {
       display: flex; justify-content: flex-end; gap: 0.6rem;
       padding: 0.9rem 1.2rem;
@@ -833,13 +638,10 @@
       padding: 0.2rem 0.6rem; border-radius: 4px; color: #333;
     }
     .cv-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem 1.5rem; }
-
     @media (max-width: 600px) {
       .cv-paper { padding: 1.6rem 1.2rem 2rem; }
       .cv-two-col { grid-template-columns: 1fr; }
     }
-
-    /* Print only the CV content */
     @media print {
       body * { visibility: hidden; }
       .cv-modal, .cv-modal * { visibility: visible; }
@@ -855,29 +657,11 @@
       .edu-grid { grid-template-columns: 1fr; }
       .nav-links { display: none; }
       .hamburger { display: flex; }
-      .hero-stats { gap: 1.5rem; }
-      section {
-        padding: 60px 5%;
-        min-height: auto;
-        display: block;
-      }
+      section { padding: 60px 5%; min-height: auto; display: block; }
       nav { position: fixed; }
-
-      footer {
-        flex-direction: column;
-        justify-content: center;
-        text-align: center;
-        padding: 1rem 6%;
-        gap: 0.4rem;
-      }
+      footer { flex-direction: column; justify-content: center; text-align: center; padding: 1rem 6%; gap: 0.4rem; }
       .footer-brand { font-size: 0.78rem; line-height: 1.4; }
       .footer-copy { font-size: 0.72rem; }
-    }
-
-    /* ── TYPING ANIMATION ─────────────────────────────────── */
-    @keyframes typing {
-      from { width: 0; }
-      to   { width: 100%; }
     }
   </style>
 </head>
@@ -890,6 +674,7 @@
     <li><a href="#about">About</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#projects">Projects</a></li>
+    <li><a href="#problem-solving">Problem Solving</a></li>
     <li><a href="#education">Education</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><button class="cv-btn" onclick="openCV()">
@@ -907,6 +692,7 @@
   <a href="#about" onclick="closeMobileNav()">About</a>
   <a href="#skills" onclick="closeMobileNav()">Skills</a>
   <a href="#projects" onclick="closeMobileNav()">Projects</a>
+  <a href="#problem-solving" onclick="closeMobileNav()">Problem Solving</a>
   <a href="#education" onclick="closeMobileNav()">Education</a>
   <a href="#contact" onclick="closeMobileNav()">Contact</a>
   <a href="#" onclick="closeMobileNav(); openCV(); return false;">View CV</a>
@@ -914,15 +700,11 @@
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-grid-bg"></div>
-  <div class="hero-glow"></div>
-  <div class="hero-overlay"></div>
   <div class="hero-content">
     <h1 class="hero-name">
       <span class="first">Md. Redone Prodhan Turzo</span>
     </h1>
     <div class="terminal-line">
-      <span class="prompt"></span>  
       <span class="typed-text" id="typed-text"></span><span class="cursor" id="cursor"></span>
     </div>
   </div>
@@ -937,10 +719,8 @@
       <img src="turzoo.png" alt="Md. Redone Prodhan Turzo" class="turzoo-img">
       <div class="avatar-badge">BSc. SWE</div>
     </div>
-    <div class="about-info-col anim-right">
-      <div class="fade-in">
-        <h2 class="section-title">About myself</h2>
-      </div>
+    <div class="about-info-col">
+      <h2 class="section-title">About myself</h2>
       <div class="info-list">
         <div class="info-item">
           <span class="info-label">University</span>
@@ -956,28 +736,24 @@
         </div>
         <div class="info-item">
           <span class="info-label">Status</span>
-          <span class="info-value"><del>Open to Opportunities</del></span>
+          <span class="info-value">Open to Opportunities</span>
         </div>
       </div>
     </div>
   </div>
-  <div class="about-bio fade-in">
+  <div class="about-bio">
     <p>I'm <span>Md. Redone Prodhan Turzo</span>, a dedicated Software Engineering undergraduate at Green University of Bangladesh. I thrive at the intersection of logical problem-solving and creative design.</p>
     <p>My journey in tech began with curiosity — taking apart programs to understand how they worked — and has evolved into a genuine passion for crafting software that is both <span>elegant and effective</span>.</p>
     <p>When I'm not coding, I enjoy exploring new frameworks, contributing to open-source ideas, and learning about emerging technologies that are reshaping our world.</p>
   </div>
 </section>
 
-<div class="divider"></div>
-
 <!-- SKILLS -->
 <section id="skills">
-  <div class="fade-in">
-    <h2 class="section-title">Skills & Technologies</h2>
-    <p class="section-sub">Tools and languages I've built with and keep sharpening.</p>
-  </div>
+  <h2 class="section-title">Skills & Technologies</h2>
+  <p class="section-sub">Tools and languages I've built with and keep sharpening.</p>
   <div class="skills-categories">
-    <div class="skill-card anim-zoom delay-1">
+    <div class="skill-card">
       <div class="skill-card-title">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
         Programming Languages
@@ -987,7 +763,7 @@
         <span class="skill-tag">HTML/CSS</span>
       </div>
     </div>
-    <div class="skill-card anim-zoom delay-2">
+    <div class="skill-card">
       <div class="skill-card-title">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
         Tools & Platforms
@@ -999,8 +775,7 @@
         <span class="skill-tag">Codeblocks</span>
       </div>
     </div>
-
-    <div class="skill-card anim-zoom delay-3">
+    <div class="skill-card">
       <div class="skill-card-title">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
         Interpersonal Skills
@@ -1014,27 +789,19 @@
   </div>
 </section>
 
-<div class="divider"></div>
-
 <!-- PROJECTS -->
 <section id="projects">
-  <div class="fade-in">
-    <div class="section-tag">what I've built</div>
-    <h2 class="section-title">Projects</h2>
-    <p class="section-sub">A selection of things I've designed and engineered.</p>
-  </div>
+  <div class="section-tag">what I've built</div>
+  <h2 class="section-title">Projects</h2>
+  <p class="section-sub">A selection of things I've designed and engineered.</p>
   <div class="projects-grid">
-    <div class="project-card anim-pop delay-1">
+    <div class="project-card">
       <div class="project-num">// 01</div>
-      <div class="project-name">Project on C language</div>
-      <div class="project-desc">Developed a project using the C language to apply 
-        fundamental programming concepts, including variables, loops, functions, arrays, and file 
-        handling.</div>
-      <div class="project-stack">
-        <span class="stack-tag">C</span>
-      </div>
+      <div class="project-name">Personal Portfolio Website</div>
+      <div class="project-desc">eveloped a modern, responsive personal portfolio website with the help of AI, showcasing my projects, skills, education, and contact information.</div>
+      <div class="project-stack"></div>
       <div class="project-links">
-        <a href="#" class="project-link">
+        <a href="https://github.com/redoneturzo/Project-on-Redone-Turzo-Portfolio" class="project-link">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
           GitHub
         </a>
@@ -1044,65 +811,29 @@
         </a>
       </div>
     </div>
-    <div class="project-card anim-pop delay-2">
+    <div class="project-card">
+      <div class="project-num">// 01</div>
+      <div class="project-name">Project on C language</div>
+      <div class="project-desc">Developed a project using the C language to apply fundamental programming concepts, including variables, loops, functions, arrays, and file handling.</div>
+      <div class="project-stack"><span class="stack-tag">C</span></div>
+      <div class="project-links">
+        <a href="https://github.com/redoneturzo/Project-on-C" class="project-link">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          GitHub
+        </a>
+        <a href="#" class="project-link">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          Live Demo
+        </a>
+      </div>
+    </div>
+    <div class="project-card">
       <div class="project-num">// 02</div>
       <div class="project-name">Project on Data structure</div>
       <div class="project-desc">Developed a project applying fundamental data structure concepts such as arrays, linked lists, stacks, and queues to efficiently organize and process data.</div>
-      <div class="project-stack">
-      </div>
+      <div class="project-stack"></div>
       <div class="project-links">
-        <a href="#" class="project-link">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-          GitHub
-        </a>
-        <a href="#" class="project-link">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          Live Demo
-        </a>
-      </div>
-    </div>
-    <div class="project-card anim-pop delay-3">
-      <div class="project-num">// 03</div>
-      <div class="project-name">Project on Discrete Mathematics</div>
-      <div class="project-desc">Completed a project focused on logical reasoning, set theory, graph theory, and mathematical problem-solving techniques used in computer science.</div>
-      <div class="project-stack">
-      </div>
-      <div class="project-links">
-        <a href="#" class="project-link">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-          GitHub
-        </a>
-        <a href="#" class="project-link">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          Live Demo
-        </a>
-      </div>
-    </div>
-    <div class="project-card anim-pop delay-4">
-      <div class="project-num">// 04</div>
-      <div class="project-name">Project on Calculas</div>
-      <div class="project-desc">Completed a project exploring differential and integral calculus concepts, including rates of change, optimization, and area calculations for practical applications.</div>
-      <div class="project-stack">
-      </div>
-      <div class="project-links">
-        <a href="#" class="project-link">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-          GitHub
-        </a>
-        <a href="#" class="project-link">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          Live Demo
-        </a>
-      </div>
-    </div>
-    <div class="project-card anim-pop delay-5">
-      <div class="project-num">// 05</div>
-      <div class="project-name">Project on Physics</div>
-      <div class="project-desc">Conducted a physics project involving the analysis of scientific principles, experimental methods, and real-world applications of physical laws.</div>
-      <div class="project-stack">
-      </div>
-      <div class="project-links">
-        <a href="#" class="project-link">
+        <a href="https://github.com/redoneturzo/Project-on-Data-Structure" class="project-link">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
           GitHub
         </a>
@@ -1113,19 +844,65 @@
       </div>
     </div>
   </div>
-
-
 </section>
 
-<div class="divider"></div>
+<!-- PROBLEM SOLVING -->
+<section id="problem-solving">
+  <div class="section-tag">competitive programming</div>
+  <h2 class="section-title">Problem Solving</h2>
+  <p class="section-sub">My problem-solving practice across online judges. Profile links and live stats below.</p>
+  <div class="ps-grid">
+    <!-- LEETCODE -->
+    <div class="ps-card">
+      <div class="ps-card-head">
+        <div class="ps-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 3l-8.5 9 8.5 9"/><path d="M9.5 13.5h11"/></svg>
+        </div>
+        <div>
+          <div class="ps-platform">LeetCode</div>
+          <div class="ps-username">@redoneturzo</div>
+        </div>
+      </div>
+      <div class="ps-stats">
+        <div class="ps-stat"><div class="ps-stat-num">00</div><div class="ps-stat-label">Solved</div></div>
+        <div class="ps-stat"><div class="ps-stat-num">--</div><div class="ps-stat-label">Rank</div></div>
+        <div class="ps-stat"><div class="ps-stat-num">--</div><div class="ps-stat-label">Badges</div></div>
+      </div>
+      <a href="https://leetcode.com/u/redoneturzo/" target="_blank" rel="noopener" class="ps-view-btn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        View Profile
+      </a>
+    </div>
+
+    <!-- BEECROWD -->
+    <div class="ps-card">
+      <div class="ps-card-head">
+        <div class="ps-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+        </div>
+        <div>
+          <div class="ps-platform">Beecrowd</div>
+          <div class="ps-username">ID: 261034039</div>
+        </div>
+      </div>
+      <div class="ps-stats">
+        <div class="ps-stat"><div class="ps-stat-num">16</div><div class="ps-stat-label">Solved</div></div>
+        <div class="ps-stat"><div class="ps-stat-num">307,347</div><div class="ps-stat-label">Position</div></div>
+        <div class="ps-stat"><div class="ps-stat-num">40.75</div><div class="ps-stat-label">Points</div></div>
+      </div>
+      <a href="https://judge.beecrowd.com/en/profile/1261487" target="_blank" rel="noopener" class="ps-view-btn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        View Profile
+      </a>
+    </div>
+  </div>
+</section>
 
 <!-- EDUCATION -->
 <section id="education">
-  <div class="fade-in">
-    <div class="section-tag">academic background</div>
-    <h2 class="section-title">Education</h2>
-    <p class="section-sub">The institution that has shaped my technical foundation.</p>
-  </div>
+  <div class="section-tag">academic background</div>
+  <h2 class="section-title">Education</h2>
+  <p class="section-sub">The institution that has shaped my technical foundation.</p>
   <div class="edu-grid">
     <div class="edu-card">
       <div class="edu-degree">Bachelor of Science in Software Engineering</div>
@@ -1136,9 +913,7 @@
         database management, operating systems, software testing, and project management.
         Actively involved in academic projects and technical coursework with a focus on full-stack development.
       </div>
-      <div class="edu-footer">
-        <span class="edu-badge">Currently Enrolled</span>
-      </div>
+      <div class="edu-footer"><span class="edu-badge">Currently Enrolled</span></div>
     </div>
     <div class="edu-card">
       <div class="edu-degree">Higher Secondary Certificate Examination</div>
@@ -1150,27 +925,21 @@
         Chemistry, Biology, Higher Mathematics, ICT, and English.
         This program enhanced my scientific skills.
       </div>
-      <div class="edu-footer">
-        <span class="edu-result">Result: 4.17</span>
-      </div>
+      <div class="edu-footer"><span class="edu-result">Result: 4.17</span></div>
     </div>
   </div>
 </section>
 
-<div class="divider"></div>
-
 <!-- CONTACT -->
 <section id="contact">
-  <div class="fade-in">
-    <div class="section-tag">let's connect</div>
-    <h2 class="section-title">Get in Touch</h2>
-    <p class="section-sub">I'm open to internships, collaborations, and interesting conversations about tech.</p>
-  </div>
+  <div class="section-tag">let's connect</div>
+  <h2 class="section-title">Get in Touch</h2>
+  <p class="section-sub">I'm open to internships, collaborations, and interesting conversations about tech.</p>
   <div class="contact-wrap">
-    <div class="contact-info anim-flip">
+    <div class="contact-info">
       <p>Whether you're a recruiter, a fellow developer, or just curious about my work — don't hesitate to reach out. I'll get back to you as soon as I can.</p>
       <div class="contact-items">
-        <a href="mailto:turzo@example.com" class="contact-item">
+        <a href="mailto:redoneprodhan141@gmail.com" class="contact-item">
           <div class="contact-icon">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
           </div>
@@ -1179,7 +948,7 @@
             <div class="contact-item-value">redoneprodhan141@gmail.com</div>
           </div>
         </a>
-        <a href="#" class="contact-item">
+        <a href="https://github.com/redoneturzo" target="_blank" rel="noopener" class="contact-item">
           <div class="contact-icon">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
           </div>
@@ -1188,7 +957,7 @@
             <div class="contact-item-value">github.com/redoneturzo</div>
           </div>
         </a>
-        <a href="#" class="contact-item">
+        <a href="https://linkedin.com/in/redoneturzo" target="_blank" rel="noopener" class="contact-item">
           <div class="contact-icon">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
           </div>
@@ -1217,31 +986,31 @@
         </div>
       </div>
     </div>
-    <div class="anim-flip delay-2">
-      <div class="contact-form">
+    <div>
+      <form class="contact-form" id="contactForm" onsubmit="return handleContactSubmit(event)">
         <div class="form-row">
           <div class="form-group">
-            <label>Your Name</label>
-            <input type="text" placeholder="Karim Sarkar" />
+            <label for="cf-name">Your Name</label>
+            <input type="text" id="cf-name" name="name" placeholder="Karim Sarkar" required />
           </div>
           <div class="form-group">
-            <label>Email Address</label>
-            <input type="email" placeholder="you@email.com" />
+            <label for="cf-email">Email Address</label>
+            <input type="email" id="cf-email" name="email" placeholder="you@email.com" required />
           </div>
         </div>
         <div class="form-group">
-          <label>Subject</label>
-          <input type="text" placeholder="Internship Inquiry / Collaboration" />
+          <label for="cf-subject">Subject</label>
+          <input type="text" id="cf-subject" name="subject" placeholder="Internship Inquiry / Collaboration" />
         </div>
         <div class="form-group">
-          <label>Message</label>
-          <textarea placeholder="Tell me what's on your mind…"></textarea>
+          <label for="cf-message">Message</label>
+          <textarea id="cf-message" name="message" placeholder="Tell me what's on your mind…" required></textarea>
         </div>
-        <button class="btn-primary" style="align-self:flex-start;" onclick="alert('Message sent! (Connect this to a backend or EmailJS to make it functional)')">
+        <button class="form-submit-btn" type="submit">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
           Send Message
         </button>
-      </div>
+      </form>
     </div>
   </div>
 </section>
@@ -1250,9 +1019,7 @@
 <div class="cv-overlay" id="cvOverlay" onclick="if(event.target===this) closeCV()">
   <div class="cv-modal">
     <div class="cv-toolbar">
-      <button class="cv-print-btn" onclick="window.print()">
-        ⬇ Download / Print
-      </button>
+      <button class="cv-print-btn" onclick="window.print()">⬇ Download / Print</button>
       <button onclick="closeCV()">✕ Close</button>
     </div>
 
@@ -1297,14 +1064,14 @@
             <div class="cv-entry-title">Higher Secondary Certificate Examination (HSC)</div>
             <div class="cv-entry-date">Passing year: 2025</div>
           </div>
-          <div class="cv-entry-sub">Gobindagonj Government College · Result: 4.17 / 5.00</div>
+          <div class="cv-entry-sub">Nirjhor Cantonment Public School and College · Result: 4.17 / 5.00</div>
         </div>
         <div class="cv-entry">
           <div class="cv-entry-top">
             <div class="cv-entry-title">Secondary School Certificate Examination (SSC)</div>
             <div class="cv-entry-date">Passing year: 2023</div>
           </div>
-          <div class="cv-entry-sub">Gobindagonj Government School · Result: 5.00 / 5.00</div>
+          <div class="cv-entry-sub">Nirjhor Cantonment Public School and College · Result: 5.00 / 5.00</div>
         </div>
       </div>
 
@@ -1398,7 +1165,7 @@
               Lecturer, Department of Software Engineering<br>
               Green University of Bangladesh<br>
               Narayangonj, Dhaka, Bangladesh<br>
-              tahlil@swe.green.ac.bd
+              tahlil@swe.green.edu.bd
             </div>
           </div>
         </div>
@@ -1413,10 +1180,10 @@
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.472-.148-.67.15-.198.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.004 2.003c-5.514 0-9.997 4.483-9.997 9.997 0 1.762.464 3.484 1.345 4.997L2 22l5.146-1.35a9.96 9.96 0 0 0 4.858 1.237h.004c5.514 0 9.997-4.483 9.997-9.997 0-2.67-1.04-5.18-2.929-7.069a9.935 9.935 0 0 0-7.072-2.818zm0 18.166h-.003a8.16 8.16 0 0 1-4.158-1.14l-.298-.177-3.055.801.816-2.978-.194-.306a8.147 8.147 0 0 1-1.25-4.369c0-4.508 3.669-8.176 8.178-8.176 2.184 0 4.238.851 5.783 2.397a8.126 8.126 0 0 1 2.394 5.786c0 4.508-3.67 8.162-8.213 8.162z"/></svg>
 </a>
 
-<!-- WHATSAPP "CAN WE HELP YOU?" POPUP CARD (desktop + mobile) -->
+<!-- WHATSAPP "QUICK RESPONSE" POPUP CARD -->
 <div class="wa-popup" id="waPopup">
   <button class="wa-popup-close" onclick="closeWaPopup()" aria-label="Close">✕</button>
-  <div class="wa-popup-title">Want a quick responce?</div>
+  <div class="wa-popup-title">Want a quick response?</div>
   <div class="wa-popup-sub">I'm available on WhatsApp — usually a quick reply away.</div>
   <div class="wa-popup-actions">
     <a href="https://wa.me/8801898665386?text=Hi%20Turzo%2C%20I%20saw%20your%20portfolio%20and%20wanted%20to%20connect!"
@@ -1427,8 +1194,8 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-brand"><span></span>Md. Redone Prodhan Turzo — Green University of Bangladesh</div>
-  <div class="footer-copy">© 2026 · Built with HTML & CSS </div>
+  <div class="footer-brand">Md. Redone Prodhan Turzo — Green University of Bangladesh</div>
+  <div class="footer-copy">© 2026 · Built with HTML & CSS</div>
 </footer>
 
 <script>
@@ -1480,26 +1247,39 @@
     if (e.key === 'Escape') closeCV();
   });
 
-  /* Scroll animations */
-  const animatedSelectors = [
-    '.fade-in', '.anim-left', '.anim-right', '.anim-zoom',
-    '.anim-pop', '.anim-slide-left', '.anim-slide-right', '.anim-flip'
-  ];
+  /* Scroll-in animation for the About photo only */
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) {
         e.target.classList.add('visible');
-        obs.unobserve(e.target); /* animate once, then stop watching for smoother scroll perf */
+        obs.unobserve(e.target);
       }
     });
   }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
-  document.querySelectorAll(animatedSelectors.join(',')).forEach(el => obs.observe(el));
+  document.querySelectorAll('.anim-left').forEach(el => obs.observe(el));
 
-  /* WhatsApp "Can we help you?" popup — same behaviour on desktop and
-     mobile. Shows automatically a couple of seconds after page load.
-     "No thanks" (or the ✕) dismisses it and it won't show again for the
-     rest of this browser session (sessionStorage). Delete the
-     sessionStorage lines below if you want it to appear on every reload. */
+  /* Contact form: there is no backend behind this form, so instead of
+     falsely telling visitors "Message sent!", it opens their email
+     client with the details pre-filled. Replace with a real backend
+     or a service like Formspree/EmailJS when you're ready to receive
+     submissions directly on the page. */
+  function handleContactSubmit(evt) {
+    evt.preventDefault();
+    const name = document.getElementById('cf-name').value.trim();
+    const email = document.getElementById('cf-email').value.trim();
+    const subject = document.getElementById('cf-subject').value.trim() || 'Portfolio Contact';
+    const message = document.getElementById('cf-message').value.trim();
+
+    const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
+    const mailto = `mailto:redoneprodhan141@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailto;
+    return false;
+  }
+
+  /* WhatsApp "quick response" popup — appears once, a couple of
+     seconds after page load. Dismissing it hides it for the rest of
+     this browser session. Remove the sessionStorage lines to make it
+     reappear on every reload. */
   (function () {
     const popup = document.getElementById('waPopup');
     if (!popup) return;
