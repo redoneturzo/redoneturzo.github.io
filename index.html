@@ -37,6 +37,8 @@
 
   h1.headline{font-size:2.5rem;margin:10px 0 20px;}
   .about-text p{margin-bottom:16px;color:#333;font-size:1.05rem;}
+    .upd{text-align:right;font-size:.85rem;color:#6b7280;font-style:italic;}
+  .upd-m{display:none;}
 
   /* section commons */
   section{padding:48px 0;border-top:1px solid var(--line);}
@@ -112,6 +114,8 @@
   @media(max-width:640px){
     .about-row{grid-template-columns:1fr;text-align:center;}
     h1.headline{font-size:1.9rem;}
+    .upd-pc{display:none;}
+    .upd-m{display:block;margin-bottom:14px;}
     .row-item{flex-direction:column;}
   }
   @media print{
@@ -127,6 +131,7 @@
 
 <div class="wrap">
   <header>
+    <p class="upd upd-m">Last updated: 1 November 2026</p>
     <div class="about-row">
       <div class="avatar-col">
         <img src="turzoo.png" alt="Md. Redone Prodhan Turzo" class="avatar"/>
@@ -158,7 +163,7 @@
       </div>
 
       <div>
-        <p style="text-align:right;font-size:.85rem;color:#6b7280;font-style:italic;margin-top:10px;">Last updated: 1 November 2026</p>
+        <p class="upd upd-pc" style="margin-top:10px;">Last updated: 1 November 2026</p>
 <h1 class="headline" style="margin-top:0;">About me</h1>
         <div class="about-text">
           <p>I'm <b>Md. Redone Prodhan Turzo</b>, a Software Engineering undergraduate at Green University of Bangladesh. I enjoy solving problems and building useful software. I like combining logical thinking with creativity to develop effective and innovative solutions.</p>
