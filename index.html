@@ -37,15 +37,15 @@
 
   h1.headline{font-size:2.5rem;margin:10px 0 20px;}
   .about-text p{margin-bottom:16px;color:#333;font-size:1.05rem;}
-    .upd{text-align:right;font-size:.85rem;color:#6b7280;font-style:italic;}
+  .upd{text-align:right;font-size:.85rem;color:#6b7280;font-style:italic;}
   .upd-m{display:none;}
 
   /* section commons */
   section{padding:48px 0;border-top:1px solid var(--line);}
-  section h2{font-size:1.8rem;margin-bottom:26px;}
+  section h2{font-size:1.8rem;margin-bottom:22px;}
 
   /* filter tabs (publications) */
-  .tabs{display:flex;gap:10px;margin:-10px 0 26px;flex-wrap:wrap;}
+  .tabs{display:flex;gap:10px;margin:-6px 0 26px;flex-wrap:wrap;}
   .tab-btn{border:none;border-radius:6px;padding:8px 18px;font-size:.9rem;font-family:'Inter',sans-serif;font-weight:500;cursor:pointer;background:var(--paper);color:var(--sub);}
   .tab-btn.active{background:var(--ink);color:#fff;}
 
@@ -67,12 +67,14 @@
   .tags{display:flex;flex-wrap:wrap;gap:9px;}
   .tag{background:var(--accent-soft);border:1px solid var(--line);color:var(--accent);font-size:.85rem;padding:6px 14px;border-radius:20px;}
 
-  /* projects: simple list rows */
+  /* projects / work: simple list rows */
   .row-list{display:flex;flex-direction:column;}
   .row-item{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:14px 0;border-bottom:1px solid var(--line);}
-  .row-item:last-child{border-bottom:none;}
+  .row-item:first-child{padding-top:0;}
+  .row-item:last-child{border-bottom:none;padding-bottom:0;}
   .row-main{font-weight:600;font-size:1.05rem;}
-  .row-desc{color:#555;font-size:.92rem;margin-top:4px;max-width:520px;}
+  .row-sub{color:var(--accent);font-size:.92rem;font-weight:500;margin-top:2px;}
+  .row-desc{color:#555;font-size:.92rem;margin-top:4px;max-width:540px;}
   .row-side{font-family:'JetBrains Mono',monospace;font-size:.85rem;color:var(--sub);white-space:nowrap;}
 
   /* publications */
@@ -131,7 +133,7 @@
 
 <div class="wrap">
   <header>
-    <p class="upd upd-m">Last updated: 23 November 2026</p>
+    <p class="upd upd-m">Last updated: 25 November 2026</p>
     <div class="about-row">
       <div class="avatar-col">
         <img src="turzoo.png" alt="Md. Redone Prodhan Turzo" class="avatar"/>
@@ -163,8 +165,8 @@
       </div>
 
       <div>
-        <p class="upd upd-pc" style="margin-top:10px;">Last updated: 23 November 2026</p>
-<h1 class="headline" style="margin-top:0;">About me</h1>
+        <p class="upd upd-pc" style="margin-top:10px;">Last updated: 25 November 2026</p>
+        <h1 class="headline" style="margin-top:0;">About me</h1>
         <div class="about-text">
           <p>I'm <b>Md. Redone Prodhan Turzo</b>, a Software Engineering undergraduate at Green University of Bangladesh. I enjoy solving problems and building useful software. I like combining logical thinking with creativity to develop effective and innovative solutions.</p>
           <p>My goal is not just to get a job—I want to build solutions that make a real difference. I enjoy exploring new ideas, creating products, and solving real-world problems, which is why I am interested in entrepreneurship.</p>
@@ -198,6 +200,20 @@
     </div>
   </section>
 
+  <section id="work-experience">
+    <h2>Professional Experience</h2>
+    <div class="row-list">
+      <div class="row-item">
+        <div>
+          <div class="row-main">Founder</div>
+          <div class="row-sub">Openbook Project</div>
+          <div class="row-desc">As a Founder for Openbook, developing a AI native NCTB curiculam based Education Platform. The main purpose of this project is to help the secondary and higher secondary students to learn, practice, and test their knowledge more easily in the AI era.
+          </div>
+        </div>
+        <div class="row-side">Present</div>
+      </div>
+    </div>
+
   <section id="skills">
     <h2>Skills</h2>
     <div class="tag-group">
@@ -220,14 +236,14 @@
       <div class="row-item">
         <div>
           <div class="row-main">Edtech web application</div>
-          <div class="row-desc">Readingghor (www.readingghor.com) is "A NCTB curriculum based EdTech web application." This platform is for secondary and higher secondary students. Here they get academic support 24/7.</div>
+          <div class="row-desc">Openbook (www.readingghor.com) is "A NCTB curriculum based EdTech web application." This platform is for secondary and higher secondary students. Here they get academic support 24/7.</div>
         </div>
         <a class="row-side" href="https://readingghor.com/" target="_blank" rel="noopener">visit →</a>
       </div>
       <div class="row-item">
         <div>
-          <div class="row-main">Readingghor Student Kit</div>
-          <div class="row-desc">All the essential tools for studies and university admission eligibility checker in one place!  Built as a part of Readingghor, it gives instant and easy results without any hassle.</div>
+          <div class="row-main">Openbook Student Kit</div>
+          <div class="row-desc">All the essential tools for studies and university admission eligibility checker in one place! Built as a part of Openbook, it gives instant and easy results without any hassle.</div>
         </div>
         <a class="row-side" href="https://www.readingghor.com/?view=tools" target="_blank" rel="noopener">visit →</a>
       </div>
@@ -255,20 +271,6 @@
       <button class="tab-btn" data-filter="all" onclick="filterPubs(this)">All</button>
     </div>
     <div class="pub-list" id="pubList">
-      <!-- No publications yet — add a .pub-item block here when one is ready, following this structure:
-      <div class="pub-item" data-cat="selected">
-        <div class="pub-thumbs">
-          <div class="pub-thumb-label">Figure label</div>
-          <div class="pub-thumb-box"><img src="thumb.png" alt=""/></div>
-        </div>
-        <div>
-          <div class="pub-title"><a href="#">Paper title</a></div>
-          <div class="pub-authors">Author One, Author Two, and <b>Md. Redone Prodhan Turzo</b></div>
-          <div class="pub-venue">Conference / Journal Name, Year <span class="pub-tag">[Status]</span></div>
-          <div class="pub-links"><a href="#">Paper</a><a href="#">Code</a></div>
-        </div>
-      </div>
-      -->
       <div class="pub-empty">No publications yet — this section will be updated once a paper is out. Check back soon.</div>
     </div>
   </section>
@@ -276,7 +278,7 @@
   <footer>© 2026 Md. Redone Prodhan Turzo — Green University of Bangladesh</footer>
 </div>
 
-<!-- CV MODAL 
+<!-- CV MODAL
 <div class="cv-overlay" id="cvOverlay" onclick="if(event.target===this) closeCV()">
   <div class="cv-modal">
     <div class="cv-bar">
@@ -299,6 +301,9 @@
       <div class="cv-entry"><b>HSC</b> — Science group · 2025 · Result 4.17/5.00</div>
       <div class="cv-entry"><b>SSC</b> — Science group · 2023 · Result 5.00/5.00</div>
 
+      <h3>Professional Experience</h3>
+      <div class="cv-entry"><b>Assistant Teacher of ICT</b> — Inventors Academy · Present</div>
+
       <h3>Technical Skills</h3>
       <p>C · HTML5 · CSS3 · Javascript · React · Next.js · Git · GitHub · VS Code · Codeblocks</p>
 
@@ -307,7 +312,7 @@
       <p><b>Admission Eligibility Checker:</b> A tool for students to check their admission eligibility by entering their SSC and HSC GPA.</p>
       <p><b>Project on C Language:</b> Applied fundamental programming concepts — variables, loops, functions, arrays and file handling.</p>
       <p><b>Project on Data Structure:</b> Implemented arrays, linked lists, stacks and queues to organize and process data efficiently.</p>
-      
+
       <h3>Research Interest</h3>
       <p>Software Development · Artificial Intelligence</p>
 
@@ -323,7 +328,7 @@
       <p><b>Mr. K.M. Tahlil Mahfuz Faruk</b> — Lecturer, Dept. of Software Engineering, Green University of Bangladesh · tahlil@swe.green.edu.bd</p>
     </div>
   </div>
-</div>
+</div>-->
 
 <script>
   function openCV(){document.getElementById('cvOverlay').classList.add('open');document.body.style.overflow='hidden';}
@@ -339,7 +344,5 @@
     });
   }
 </script>
-
-  -->
 </body>
 </html>
